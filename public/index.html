@@ -148,92 +148,122 @@
             </div>
 
             <div class="data-examples-section">
-                <h3>FCRM Data Points Available in the Copilot</h3>
-                <p class="data-intro">The AI Assistant provides access to the following critical data points from the FCRM/CDT data model (mock data for MVP, live data in Release 2) to enable L1 analysts to perform information gathering and investigation:</p>
+                <h3>FCRM Data Model & Available Data Points</h3>
+                <p class="data-intro">The Copilot is built on the <strong>Fiserv AML / Financial Crime Risk Management (FCRM)</strong> data model, a comprehensive vendor-aligned schema covering Party, Account, Transaction, Alert, Case Management, and Regulatory Reporting entities. The AI Assistant provides access to the following critical data points (mock data for MVP, live FCRM data in Release 2):</p>
+
+                <div class="data-model-info" style="margin: 30px 0; padding: 20px; background: #e8f0fe; border-left: 4px solid #4285f4; border-radius: 4px;">
+                    <h4 style="margin-top: 0; color: #1a73e8;">📊 Data Model Foundation</h4>
+                    <p style="margin-bottom: 10px;"><strong>Source:</strong> Fiserv AML Risk Manager / FCRM Logical Data Model</p>
+                    <p style="margin-bottom: 10px;"><strong>Schema:</strong> PostgreSQL-compatible with 60+ tables organized into 8 functional domains</p>
+                    <p style="margin-bottom: 0;"><strong>Diagrams Available:</strong> <code>./specs/fiserv_aml_fcrm_conceptual_model.png</code> and <code>./specs/fiserv_aml_fcrm_logical_model.sql</code></p>
+                </div>
 
                 <div class="data-categories-grid">
                     <div class="data-category-card">
                         <div class="category-icon">💳</div>
                         <h4>Transaction Details</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.transaction, aml.txn_party, aml.txn_location</em></p>
                         <ul class="data-points-list">
-                            <li><strong>Transaction ID:</strong> Unique identifier for the flagged transaction</li>
-                            <li><strong>Transaction Amount:</strong> Value in local currency and converted EUR/USD</li>
-                            <li><strong>Transaction Date/Time:</strong> Timestamp of the transaction</li>
-                            <li><strong>Merchant Information:</strong> Name, MCC code, location, country</li>
-                            <li><strong>Payment Method:</strong> Card type, last 4 digits, payment channel</li>
-                            <li><strong>Transaction Status:</strong> Completed, pending, reversed, declined</li>
-                            <li><strong>Transaction Type:</strong> Purchase, withdrawal, transfer, refund</li>
+                            <li><strong>Transaction ID:</strong> Unique identifier (txn_id, external_txn_id)</li>
+                            <li><strong>Amount & Currency:</strong> Value in local currency with currency code</li>
+                            <li><strong>Transaction Timestamp:</strong> Precise date/time of transaction</li>
+                            <li><strong>Transaction Type:</strong> CASH_DEPOSIT, WIRE_IN, WIRE_OUT, ACH, POS_PURCHASE, etc.</li>
+                            <li><strong>Channel:</strong> ATM, BRANCH, ONLINE, MOBILE, WIRE, SWIFT, POS</li>
+                            <li><strong>Merchant Category Code (MCC):</strong> Industry classification</li>
+                            <li><strong>Location:</strong> City, state, country, lat/long coordinates</li>
+                            <li><strong>Counterparty:</strong> Account hash, party ID, role (originator/beneficiary)</li>
                         </ul>
                     </div>
 
                     <div class="data-category-card">
                         <div class="category-icon">👤</div>
-                        <h4>Customer Information</h4>
+                        <h4>Party Information (Customer)</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.party, aml.party_identifier, aml.party_address, aml.party_role</em></p>
                         <ul class="data-points-list">
-                            <li><strong>Customer ID:</strong> Unique identifier in FCRM system</li>
-                            <li><strong>Customer Name:</strong> Full name (masked for privacy)</li>
-                            <li><strong>Customer Type:</strong> Individual, business, high-net-worth</li>
-                            <li><strong>Customer Since:</strong> Account opening date</li>
-                            <li><strong>Risk Score:</strong> Current risk rating (Low/Medium/High)</li>
-                            <li><strong>KYC Status:</strong> Know Your Customer verification status</li>
-                            <li><strong>Previous Alerts:</strong> Count of historical alerts (last 12 months)</li>
-                            <li><strong>Geographic Profile:</strong> Primary country, frequent transaction countries</li>
+                            <li><strong>Party ID:</strong> Unique identifier in FCRM system</li>
+                            <li><strong>Party Type:</strong> PERSON or ORGANIZATION</li>
+                            <li><strong>Name:</strong> Full name, first/last (for persons), org name (for organizations)</li>
+                            <li><strong>Date of Birth / Incorporation:</strong> Birth date or incorporation date</li>
+                            <li><strong>Nationality:</strong> Country code</li>
+                            <li><strong>Identifiers:</strong> Passport, National ID, DL, LEI, Tax ID</li>
+                            <li><strong>PEP Flag:</strong> Politically Exposed Person indicator</li>
+                            <li><strong>Risk Category:</strong> LOW/MEDIUM/HIGH risk classification</li>
+                            <li><strong>Addresses:</strong> Current and historical addresses with country</li>
                         </ul>
                     </div>
 
                     <div class="data-category-card">
                         <div class="category-icon">🏦</div>
                         <h4>Account Details</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.account, aml.account_holder, aml.product</em></p>
                         <ul class="data-points-list">
-                            <li><strong>Account Number:</strong> Masked account identifier</li>
-                            <li><strong>Account Type:</strong> Checking, savings, credit, investment</li>
-                            <li><strong>Account Balance:</strong> Current balance (anonymized if needed)</li>
-                            <li><strong>Account Currency:</strong> Primary currency of the account</li>
-                            <li><strong>Account Status:</strong> Active, suspended, frozen, under review</li>
-                            <li><strong>Linked Accounts:</strong> Number and type of associated accounts</li>
-                            <li><strong>Average Monthly Balance:</strong> 12-month rolling average</li>
+                            <li><strong>Account ID:</strong> Unique identifier with hashed account number</li>
+                            <li><strong>Product Type:</strong> CHECKING, SAVINGS, CREDIT_CARD, WIRE_ONLY, LOAN, MORTGAGE, INVESTMENT</li>
+                            <li><strong>Account Status:</strong> OPEN, DORMANT, CLOSED, BLOCKED</li>
+                            <li><strong>Currency:</strong> Primary currency code</li>
+                            <li><strong>Open/Close Date:</strong> Account lifecycle dates</li>
+                            <li><strong>Account Holders:</strong> Party relationships (PRIMARY, JOINT, AUTHORIZED_SIGNER, POWER_OF_ATTORNEY)</li>
+                            <li><strong>Institution Code:</strong> Financial institution identifier</li>
                         </ul>
                     </div>
 
                     <div class="data-category-card">
                         <div class="category-icon">🚨</div>
-                        <h4>Alert Metadata</h4>
+                        <h4>Alert & Case Data</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.alert, aml.case, aml.scenario, aml.alert_entity</em></p>
                         <ul class="data-points-list">
-                            <li><strong>Alert ID:</strong> Unique case identifier</li>
-                            <li><strong>Alert Type:</strong> AML, fraud, sanctions, unusual activity</li>
-                            <li><strong>Alert Severity:</strong> Critical, high, medium, low</li>
-                            <li><strong>Triggering Rule:</strong> Specific rule or scenario that generated alert</li>
-                            <li><strong>Alert Creation Date:</strong> When the alert was generated</li>
-                            <li><strong>Alert Source:</strong> System/model that generated the alert</li>
-                            <li><strong>SLA Deadline:</strong> Required resolution timeframe</li>
+                            <li><strong>Alert ID:</strong> Unique identifier for the alert</li>
+                            <li><strong>Scenario:</strong> Detection scenario code and name that triggered alert</li>
+                            <li><strong>Priority:</strong> LOW, MEDIUM, HIGH, CRITICAL</li>
+                            <li><strong>Status:</strong> NEW, QUEUED, ASSIGNED, UNDER_INVESTIGATION, CLOSED</li>
+                            <li><strong>Generated At:</strong> Alert creation timestamp</li>
+                            <li><strong>Case Number:</strong> Associated case identifier (if escalated)</li>
+                            <li><strong>Case Type:</strong> AML_ALERT, SANCTIONS, KYC_REVIEW, INTERNAL_FRAUD</li>
+                            <li><strong>Linked Entities:</strong> Associated parties, accounts, transactions</li>
                         </ul>
                     </div>
 
                     <div class="data-category-card">
                         <div class="category-icon">📊</div>
-                        <h4>Behavioral Patterns</h4>
+                        <h4>Risk Assessment & Scoring</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.party_risk_assessment, aml.model_score, aml.alert_score</em></p>
                         <ul class="data-points-list">
-                            <li><strong>Transaction Frequency:</strong> Average daily/weekly/monthly transactions</li>
-                            <li><strong>Typical Transaction Amount:</strong> Historical spending patterns</li>
-                            <li><strong>Geographic Patterns:</strong> Usual transaction locations and countries</li>
-                            <li><strong>Time-of-Day Patterns:</strong> Typical transaction hours</li>
-                            <li><strong>Merchant Category Patterns:</strong> Regular spending categories</li>
-                            <li><strong>Anomaly Score:</strong> Statistical deviation from normal behavior</li>
-                            <li><strong>Velocity Checks:</strong> Recent transaction volume vs. historical baseline</li>
+                            <li><strong>Risk Score:</strong> Numeric risk score and risk level (LOW/MEDIUM/HIGH/CRITICAL)</li>
+                            <li><strong>Assessment Method:</strong> RULES, SCORECARD, MODEL</li>
+                            <li><strong>Risk Factors:</strong> GEOGRAPHY, OCCUPATION, PEP, PRODUCT_RISK, CHANNEL_RISK, VELOCITY</li>
+                            <li><strong>Model Scores:</strong> ML-based scores from supervised/unsupervised models</li>
+                            <li><strong>Scenario Scores:</strong> Detection scenario confidence scores</li>
+                            <li><strong>Cash Aggregation:</strong> Time-windowed transaction totals and counts</li>
+                            <li><strong>Assessment Date:</strong> When risk assessment was performed</li>
+                        </ul>
+                    </div>
+
+                    <div class="data-category-card">
+                        <div class="category-icon">🔍</div>
+                        <h4>Screening & Compliance</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.screening_hit, aml.kyc_profile, aml.beneficial_ownership</em></p>
+                        <ul class="data-points-list">
+                            <li><strong>Sanctions Screening:</strong> Hits against OFAC, UN, EU, HMT lists</li>
+                            <li><strong>Match Score:</strong> Screening confidence score</li>
+                            <li><strong>Hit Status:</strong> NEW, UNDER_REVIEW, FALSE_POSITIVE, TRUE_MATCH, ESCALATED</li>
+                            <li><strong>KYC Level:</strong> SIMPLIFIED, STANDARD, ENHANCED</li>
+                            <li><strong>KYC Status:</strong> PENDING, APPROVED, REJECTED, EXPIRED</li>
+                            <li><strong>KYC Documents:</strong> Passport, ID card, utility bills, incorporation docs</li>
+                            <li><strong>Beneficial Ownership:</strong> Ultimate beneficial owners with ownership %</li>
                         </ul>
                     </div>
 
                     <div class="data-category-card">
                         <div class="category-icon">📝</div>
-                        <h4>Investigation Context</h4>
+                        <h4>Investigation & Case Context</h4>
+                        <p style="font-size: 11px; color: #5f6368; margin-bottom: 10px;"><em>Source: aml.case_note, aml.case_attachment, aml.relationship, aml.txn_link</em></p>
                         <ul class="data-points-list">
-                            <li><strong>Related Cases:</strong> Links to previous investigations for this customer</li>
-                            <li><strong>Related Transactions:</strong> Other transactions in the same time window</li>
-                            <li><strong>Counterparty Information:</strong> Details about receiving/sending parties</li>
-                            <li><strong>Device Information:</strong> IP address, device ID, location (if available)</li>
-                            <li><strong>Channel Information:</strong> Online, mobile app, ATM, branch</li>
-                            <li><strong>Previous Outcomes:</strong> Resolution of similar historical alerts</li>
-                            <li><strong>Customer Contact History:</strong> Recent interactions with customer service</li>
+                            <li><strong>Case Notes:</strong> Analyst notes and investigation narrative</li>
+                            <li><strong>Attachments:</strong> Supporting documents and evidence</li>
+                            <li><strong>Related Transactions:</strong> Linked via same counterparty, device, IP, reversals</li>
+                            <li><strong>Party Relationships:</strong> SIGNATORY_OF, OWNS, DIRECTOR_OF, CONTROLS, FAMILY_OF</li>
+                            <li><strong>Previous Dispositions:</strong> Historical alert outcomes</li>
+                            <li><strong>Tasks:</strong> Document requests, customer outreach, SAR prep</li>
                         </ul>
                     </div>
                 </div>
