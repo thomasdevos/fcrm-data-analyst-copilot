@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCRM Data Analyst Copilot - MVP Delivery Proposal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1 class="main-title">ING <span class="highlight">FCRM Data Analyst Copilot</span></h1>
+                    <p class="subtitle">GenAI-Powered Use Case - MVP Delivery Proposal</p>
+                </div>
+                <div class="header-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Delivery Partner</span>
+                        <span class="meta-value">HCLTech</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">19 Weeks</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Budget</span>
+                        <span class="meta-value">3,000 Service Hours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav" id="sticky-nav">
+        <div class="container">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#executive-summary" class="nav-link">Executive Summary</a></li>
+                <li><a href="#problem-solution" class="nav-link">Problem & Solution</a></li>
+                <li><a href="#scope" class="nav-link">MVP Scope</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
+                <li><a href="#success-criteria" class="nav-link">Success Criteria</a></li>
+                <li><a href="#squad" class="nav-link">Squad</a></li>
+                <li><a href="#dependencies" class="nav-link">Dependencies</a></li>
+                <li><a href="#roadmap" class="nav-link">Future Roadmap</a></li>
+                <li><a href="#next-steps" class="nav-link">Next Steps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Executive Summary -->
+    <section class="section section-executive" id="executive-summary">
+        <div class="container">
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="executive-grid">
+                <div class="executive-card card-primary">
+                    <h3>The Challenge</h3>
+                    <p>Financial Crime and Fraud Prevention (FCFP) L1 analysts spend significant manual effort gathering and reviewing data from multiple systems, primarily FCRM, just to perform initial triage of alerts. This repetitive, time-consuming process slows down case resolution and creates operational bottlenecks.</p>
+                </div>
+                <div class="executive-card card-secondary">
+                    <h3>The Solution</h3>
+                    <p>A GenAI-powered AI Assistant that provides two core functions: <strong>Proactive Summarization</strong> of case data when an analyst enters a Case ID, and <strong>Interactive Q&A</strong> allowing analysts to interrogate case details through natural-language conversation. The Copilot accelerates information gathering and investigation without performing triage or decision-making.</p>
+
+                <div class="executive-card card-accent">
+                    <h3>Expected Impact</h3>
+                    <ul class="impact-list">
+                        <li><strong>30-50%</strong> reduction in information gathering & investigation time</li>
+                        <li><strong>>95%</strong> factual accuracy in summaries and Q&A responses</li>
+                        <li><strong>Interactive AI Assistant</strong> for natural-language case interrogation</li>
+                        <li>UAT-ready application on mock data, path to live integration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="proposal-overview">
+                <h3>Co-Innovation Project</h3>
+                <p>This is a pragmatic, deliverable-focused MVP developed as a co-innovation project between <strong>HCLTech</strong> and <strong>ING</strong>. The solution demonstrates secure GenAI deployment in compliance operations, delivering a UAT-ready Copilot application that aids analysts without interfering with existing systems like SATM.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="section section-light" id="problem-solution">
+        <div class="container">
+            <h2 class="section-title">Problem Statement & Solution Architecture</h2>
+
+            <div class="problem-solution-grid">
+                <div class="problem-card">
+                    <h3>Current State: Manual Data Gathering</h3>
+                    <div class="problem-content">
+                        <div class="pain-points">
+                            <h4>Key Pain Points</h4>
+                            <ul>
+                                <li><span class="bullet-icon">🔴</span> Manual effort required to gather data from FCRM</li>
+                                <li><span class="bullet-icon">🔴</span> Time-consuming process for initial case triage</li>
+                                <li><span class="bullet-icon">🔴</span> Repetitive tasks slow down case resolution</li>
+                                <li><span class="bullet-icon">🔴</span> Analysts need to navigate multiple systems</li>
+                                <li><span class="bullet-icon">🔴</span> Inconsistent data review processes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-card">
+                    <h3>Future State: AI-Powered Copilot</h3>
+                    <div class="solution-content">
+                        <div class="solution-features">
+                            <h4>MVP Capabilities</h4>
+                            <ul>
+                                <li><span class="bullet-icon">✅</span> <strong>Proactive Summarization:</strong> Automatically generates natural-language summaries when analyst enters Case ID</li>
+                                <li><span class="bullet-icon">✅</span> <strong>Interactive Q&A:</strong> AI Assistant chat interface allows analysts to interrogate case data (e.g., "What was the total value of outbound transactions?")</li>
+                                <li><span class="bullet-icon">✅</span> <strong>GenAI Analysis:</strong> Gemini Pro model analyzes and summarizes case data with high factual accuracy</li>
+                                <li><span class="bullet-icon">✅</span> <strong>Mock Data Foundation:</strong> Built on high-fidelity mock dataset based on FCRM/CDT data model</li>
+                                <li><span class="bullet-icon">✅</span> <strong>Production Quality:</strong> UAT-ready with path to live data integration in Release 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-preview">
+                <h3>Solution Components</h3>
+                <div class="components-grid">
+                    <div class="component-card">
+                        <h4>User Interface</h4>
+                        <p>Standalone web application where analysts input Case IDs and view proactive summaries plus an AI Assistant chat interface for follow-up Q&A.</p>
+                    </div>
+                    <div class="component-card">
+                        <h4>Copilot Backend Service</h4>
+                        <p>LangChain-based orchestration service that coordinates data retrieval and AI model calls with robust explainability and audit logging.</p>
+                    </div>
+                    <div class="component-card">
+                        <h4>Data Source (MVP)</h4>
+                        <p>High-fidelity mock database based on FCRM/CDT data model. Release 2 will connect to live FCRM API or DAP.</p>
+                    </div>
+                    <div class="component-card">
+                        <h4>AI/ML Layer</h4>
+                        <p>Google Vertex AI with Gemini Pro model for natural language summarization and conversational Q&A (RAG engine).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-examples-section">
+                <h3>FCRM Data Points Available in the Copilot</h3>
+                <p class="data-intro">The AI Assistant provides access to the following critical data points from the FCRM/CDT data model (mock data for MVP, live data in Release 2) to enable L1 analysts to perform information gathering and investigation:</p>
+
+                <div class="data-categories-grid">
+                    <div class="data-category-card">
+                        <div class="category-icon">💳</div>
+                        <h4>Transaction Details</h4>
+                        <ul class="data-points-list">
+                            <li><strong>Transaction ID:</strong> Unique identifier for the flagged transaction</li>
+                            <li><strong>Transaction Amount:</strong> Value in local currency and converted EUR/USD</li>
+                            <li><strong>Transaction Date/Time:</strong> Timestamp of the transaction</li>
+                            <li><strong>Merchant Information:</strong> Name, MCC code, location, country</li>
+                            <li><strong>Payment Method:</strong> Card type, last 4 digits, payment channel</li>
+                            <li><strong>Transaction Status:</strong> Completed, pending, reversed, declined</li>
+                            <li><strong>Transaction Type:</strong> Purchase, withdrawal, transfer, refund</li>
+                        </ul>
+                    </div>
+
+                    <div class="data-category-card">
+                        <div class="category-icon">👤</div>
+                        <h4>Customer Information</h4>
+                        <ul class="data-points-list">
+                            <li><strong>Customer ID:</strong> Unique identifier in FCRM system</li>
+                            <li><strong>Customer Name:</strong> Full name (masked for privacy)</li>
+                            <li><strong>Customer Type:</strong> Individual, business, high-net-worth</li>
+                            <li><strong>Customer Since:</strong> Account opening date</li>
+                            <li><strong>Risk Score:</strong> Current risk rating (Low/Medium/High)</li>
+                            <li><strong>KYC Status:</strong> Know Your Customer verification status</li>
+                            <li><strong>Previous Alerts:</strong> Count of historical alerts (last 12 months)</li>
+                            <li><strong>Geographic Profile:</strong> Primary country, frequent transaction countries</li>
+                        </ul>
+                    </div>
+
+                    <div class="data-category-card">
+                        <div class="category-icon">🏦</div>
+                        <h4>Account Details</h4>
+                        <ul class="data-points-list">
+                            <li><strong>Account Number:</strong> Masked account identifier</li>
+                            <li><strong>Account Type:</strong> Checking, savings, credit, investment</li>
+                            <li><strong>Account Balance:</strong> Current balance (anonymized if needed)</li>
+                            <li><strong>Account Currency:</strong> Primary currency of the account</li>
+                            <li><strong>Account Status:</strong> Active, suspended, frozen, under review</li>
+                            <li><strong>Linked Accounts:</strong> Number and type of associated accounts</li>
+                            <li><strong>Average Monthly Balance:</strong> 12-month rolling average</li>
+                        </ul>
+                    </div>
+
+                    <div class="data-category-card">
+                        <div class="category-icon">🚨</div>
+                        <h4>Alert Metadata</h4>
+                        <ul class="data-points-list">
+                            <li><strong>Alert ID:</strong> Unique case identifier</li>
+                            <li><strong>Alert Type:</strong> AML, fraud, sanctions, unusual activity</li>
+                            <li><strong>Alert Severity:</strong> Critical, high, medium, low</li>
+                            <li><strong>Triggering Rule:</strong> Specific rule or scenario that generated alert</li>
+                            <li><strong>Alert Creation Date:</strong> When the alert was generated</li>
+                            <li><strong>Alert Source:</strong> System/model that generated the alert</li>
+                            <li><strong>SLA Deadline:</strong> Required resolution timeframe</li>
+                        </ul>
+                    </div>
+
+                    <div class="data-category-card">
+                        <div class="category-icon">📊</div>
+                        <h4>Behavioral Patterns</h4>
+                        <ul class="data-points-list">
+                            <li><strong>Transaction Frequency:</strong> Average daily/weekly/monthly transactions</li>
+                            <li><strong>Typical Transaction Amount:</strong> Historical spending patterns</li>
+                            <li><strong>Geographic Patterns:</strong> Usual transaction locations and countries</li>
+                            <li><strong>Time-of-Day Patterns:</strong> Typical transaction hours</li>
+                            <li><strong>Merchant Category Patterns:</strong> Regular spending categories</li>
+                            <li><strong>Anomaly Score:</strong> Statistical deviation from normal behavior</li>
+                            <li><strong>Velocity Checks:</strong> Recent transaction volume vs. historical baseline</li>
+                        </ul>
+                    </div>
+
+                    <div class="data-category-card">
+                        <div class="category-icon">📝</div>
+                        <h4>Investigation Context</h4>
+                        <ul class="data-points-list">
+                            <li><strong>Related Cases:</strong> Links to previous investigations for this customer</li>
+                            <li><strong>Related Transactions:</strong> Other transactions in the same time window</li>
+                            <li><strong>Counterparty Information:</strong> Details about receiving/sending parties</li>
+                            <li><strong>Device Information:</strong> IP address, device ID, location (if available)</li>
+                            <li><strong>Channel Information:</strong> Online, mobile app, ATM, branch</li>
+                            <li><strong>Previous Outcomes:</strong> Resolution of similar historical alerts</li>
+                            <li><strong>Customer Contact History:</strong> Recent interactions with customer service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="data-example-output">
+                    <h4>Example: AI-Generated Summary Output + Q&A</h4>
+                    <div class="example-box">
+                        <p class="example-label">Input: Case ID <code>FCRM-2025-0012345</code></p>
+                        <div class="example-summary">
+                            <h5>Proactive Summary (Generated by AI Assistant)</h5>
+                            <p><strong>Alert Type:</strong> Unusual Transaction Activity - Foreign Country</p>
+                            <p><strong>Customer Profile:</strong> John D. (ID: CUST-89472), Individual account holder since 2018, Low risk score, No previous alerts</p>
+                            <p><strong>Flagged Transaction:</strong> €2,450.00 purchase at "Electronics Store XYZ" in Bangkok, Thailand on 2025-11-10 14:23 UTC</p>
+                            <p><strong>Pattern Analysis:</strong> Customer's typical spending: €200-500/week in Netherlands. No prior transactions in Thailand. Average transaction amount: €85. This transaction is 28x above average.</p>
+                            <p><strong>Context:</strong> Account shows 3 transactions in Netherlands in the 48 hours prior to flagged transaction. Card was used at Amsterdam Schiphol Airport 6 hours before Thailand transaction, suggesting legitimate travel.</p>
+
+                            <h5 style="margin-top: 20px;">Interactive Q&A Example</h5>
+                            <p style="font-style: italic; color: #4285f4;"><strong>Analyst:</strong> "What was the total value of outbound transactions in the last 30 days?"</p>
+                            <p style="font-style: italic; color: #34a853;"><strong>AI Assistant:</strong> "The total value of outbound transactions for this customer in the last 30 days was €3,847.50 across 42 transactions."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MVP Scope -->
+    <section class="section" id="scope">
+        <div class="container">
+            <h2 class="section-title">MVP Scope Definition</h2>
+
+            <div class="scope-container">
+                <div class="scope-section in-scope">
+                    <h3>✅ In Scope for MVP (Target for UAT)</h3>
+                    <div class="scope-content">
+                        <h4>Functionality Included:</h4>
+                        <ul class="scope-list">
+                            <li>Standalone web application with Case ID input</li>
+                            <li><strong>Proactive Summarization:</strong> Automatically generate natural-language summary of key case facts</li>
+                            <li><strong>Interactive Q&A:</strong> AI Assistant chat interface to interrogate case data (e.g., "What was the total value of outbound transactions?")</li>
+                            <li><strong>Mock Data Foundation:</strong> Built and tested using high-fidelity mock dataset based on FCRM/CDT data model</li>
+                            <li>Secure GCP deployment with VPC Service Controls and IAM</li>
+                            <li>Audit logging and explainability layer for transparency</li>
+                            <li>UAT-ready application with path to live data integration (Release 2)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="scope-section out-scope">
+                    <h3>❌ Out of Scope for MVP</h3>
+                    <div class="scope-content">
+                        <h4>Explicitly Excluded:</h4>
+                        <ul class="scope-list">
+                            <li>Any decision-making, triage, recommendations, or proposals (e.g., "Close" or "Escalate")</li>
+                            <li>Automated report generation for case closure</li>
+                            <li>Direct "write-back" integration to FCRM (e.g., no auto-closing cases)</li>
+                            <li>Live data integration from FCRM API, DAP, Quantexa, or TMA (planned for Release 2)</li>
+                            <li>Automated aggregation or creation of new alerts</li>
+                            <li>Autonomous/agentic AI behavior (ING policy restricts this pending broader approval)</li>
+                        </ul>
+                        <p class="scope-note"><strong>Note:</strong> The Copilot strictly aids analysts - it does not interfere with existing systems like SATM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section section-light" id="timeline">
+        <div class="container">
+            <h2 class="section-title">19-Week MVP Delivery Timeline</h2>
+
+            <div class="timeline-intro">
+                <p>The timeline is driven by the non-visible engineering, data, and governance work required to build a reliable and secure GenAI solution for a high-stakes compliance environment. Key effort areas: <strong>Data Modeling & Mocking</strong>, <strong>Dual-Function AI (Summarization + Q&A)</strong>, and <strong>Compliance & Explainability</strong>. Total budget: <strong>~3,000 service hours</strong> (~160 hours/week).</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-0"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Weeks 1-2 (Sprint 0)</h3>
+                            <span class="timeline-badge">Foundation</span>
+                        </div>
+                        <h4>Kick-off & Environment Setup</h4>
+                        <ul>
+                            <li>Finalize MVP scope and requirements</li>
+                            <li>Define data-access contracts</li>
+                            <li>Set up GCP/UAT environments</li>
+                            <li>Initiate compliance/risk review process</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-1"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Weeks 3-8 (Sprints 1-3)</h3>
+                            <span class="timeline-badge">Data & Security</span>
+                        </div>
+                        <h4>Data Modeling & Mock Dataset Development</h4>
+                        <ul>
+                            <li>Develop and validate high-fidelity mock dataset based on FCRM/CDT data model</li>
+                            <li>Build data transformation logic for GenAI consumption</li>
+                            <li>Establish secure GCP infrastructure with VPC-SC and IAM</li>
+                            <li>Build deterministic guardrails to prevent hallucinations and ensure factual accuracy</li>
+                        </ul>
+                        <div class="timeline-rationale">
+                            <strong>Why 6 weeks?</strong> Creating realistic mock data that reflects FCRM/CDT complexity is critical for building a valuable Copilot. Data quality work is front-loaded.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-2"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Weeks 9-14 (Sprints 4-6)</h3>
+                            <span class="timeline-badge">Copilot & UI</span>
+                        </div>
+                        <h4>Copilot Development & Dual-Function AI</h4>
+                        <ul>
+                            <li>Build standalone Copilot web application UI with chat interface</li>
+                            <li>Develop <strong>Proactive Summarization</strong> function with prompt engineering</li>
+                            <li>Develop <strong>Interactive Q&A (RAG)</strong> conversational engine</li>
+                            <li>Iterative testing and tuning to eliminate hallucinations and ensure >95% factual accuracy</li>
+                            <li>Build explainability and logging layers for audit trails</li>
+                        </ul>
+                        <div class="timeline-rationale">
+                            <strong>Why 6 weeks?</strong> Building two distinct AI functions (summarization + conversational Q&A) requires extensive validation cycles and accuracy tuning.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-3"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Weeks 15-17 (Sprints 7-8)</h3>
+                            <span class="timeline-badge">Validation & UAT</span>
+                        </div>
+                        <h4>User Acceptance Testing (on Mock Dataset)</h4>
+                        <ul>
+                            <li>Formal UAT phase with L1 analysts testing Copilot on mock data</li>
+                            <li>Support analysts in test execution and feedback collection</li>
+                            <li>Gather metrics on time savings and factual accuracy</li>
+                            <li>Fix bugs and refine Copilot's summarization and Q&A accuracy</li>
+                            <li>Finalize explainability logs and audit trails</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-4"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Week 18 (Sprint 9)</h3>
+                            <span class="timeline-badge">Handover</span>
+                        </div>
+                        <h4>Final Delivery</h4>
+                        <ul>
+                            <li>Final UAT report and validation</li>
+                            <li>Demo of validated Copilot to stakeholders</li>
+                            <li>Handover of UAT-ready application</li>
+                            <li>Complete documentation package</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-key-drivers">
+                <h3>Key Time Drivers</h3>
+                <div class="drivers-grid">
+                    <div class="driver-card">
+                        <h4>1. Data Modeling & Mocking</h4>
+                        <p>Creating high-fidelity mock dataset based on FCRM/CDT data model and transforming it for GenAI consumption is significant engineering work.</p>
+                    </div>
+                    <div class="driver-card">
+                        <h4>2. Dual-Function AI Development</h4>
+                        <p>Building both proactive summarization and conversational Q&A (RAG engine) requires extensive prompt engineering and validation.</p>
+                    </div>
+                    <div class="driver-card">
+                        <h4>3. Reliability & Factual Accuracy</h4>
+                        <p>Rigorous validation cycles to achieve >95% factual accuracy and eliminate hallucinations - the biggest risk in GenAI applications.</p>
+                    </div>
+                    <div class="driver-card">
+                        <h4>4. Compliance & Explainability</h4>
+                        <p>Building transparent, auditable logging ensures every summary and Q&A answer is traceable and consistent for compliance approval.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section section-tech" id="technology">
+        <div class="container">
+            <h2 class="section-title">Technology Stack (GCP)</h2>
+
+            <div class="tech-intro">
+                <p>The solution leverages Google Cloud Platform services with enterprise-grade security and compliance standards.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🤖</div>
+                    <h3>AI/LLM</h3>
+                    <h4>Google Vertex AI</h4>
+                    <p>Accessing the latest <strong>Gemini Pro 2.5</strong> models (as of October 2025) for natural language analysis and summary generation.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">⚙️</div>
+                    <h3>Orchestration Framework</h3>
+                    <h4>LangChain</h4>
+                    <p>GenAI framework powering the Copilot Backend Service to coordinate data retrieval, summarization, and Q&A functions with compliance controls.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">☁️</div>
+                    <h3>Application Hosting</h3>
+                    <h4>Cloud Run / App Engine</h4>
+                    <p>Serverless hosting for the standalone web application and REST API with auto-scaling capabilities.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🗄️</div>
+                    <h3>Data Source (MVP)</h3>
+                    <h4>Mock Database</h4>
+                    <p>High-fidelity mock dataset (Cloud SQL or BigQuery) based on FCRM/CDT data model. Release 2 will connect to live FCRM or DAP.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🔗</div>
+                    <h3>Data Connector</h3>
+                    <h4>Cloud Functions & Storage</h4>
+                    <p>Cloud Functions for data connector API, Cloud Storage for temporary data, and Secret Manager for secure credentials.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🔒</div>
+                    <h3>Security & Networking</h3>
+                    <h4>VPC-SC, IAM, VPN</h4>
+                    <p>VPC Service Controls, Identity and Access Management, and secure interconnect/VPN to ING FCRM data source.</p>
+                </div>
+            </div>
+
+            <div class="architecture-diagram">
+                <h3>Detailed GCP Architecture Diagram</h3>
+                <div class="architecture-box" style="text-align: center; padding: 30px; background: #f8f9fa;">
+                    <img src="analyst-copilot-gcp-architecture.svg" alt="Analyst Data Copilot GCP Architecture" style="max-width: 100%; height: auto; border: 1px solid #e0e0e0; border-radius: 8px; background: white;">
+                    <p style="margin-top: 20px; font-size: 14px; color: #5f6368;">
+                        <strong>Architecture Overview:</strong> The Copilot is built on GCP with secure VPC controls, featuring a Cloud Run application layer,
+                        Vertex AI (Gemini Pro) for GenAI processing, and mock data foundation (MVP) with path to live FCRM/DAP integration (Release 2).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Criteria -->
+    <section class="section section-light" id="success-criteria">
+        <div class="container">
+            <h2 class="section-title">Success Criteria & Metrics</h2>
+
+            <div class="success-grid">
+                <div class="success-column">
+                    <h3>Project Success</h3>
+                    <div class="success-card">
+                        <h4>Delivery Excellence</h4>
+                        <ul class="success-list">
+                            <li>✓ Deliver defined MVP scope to UAT environment</li>
+                            <li>✓ Complete within 19-week timeline</li>
+                            <li>✓ Stay within 3,000 service hours budget</li>
+                            <li>✓ Achieve formal sign-off from compliance/risk teams</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="success-column">
+                    <h3>Quantitative Success (UAT Validation)</h3>
+                    <div class="success-card">
+                        <div class="metric-item">
+                            <div class="metric-icon">⏱️</div>
+                            <h4>Time Savings</h4>
+                            <p class="metric-target">30-50%</p>
+                            <p class="metric-desc">Reduction in average information gathering & investigation time</p>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">🎯</div>
+                            <h4>Factual Accuracy</h4>
+                            <p class="metric-target">>95%</p>
+                            <p class="metric-desc">Summaries and Q&A answers factually correct and free of hallucinations</p>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">💬</div>
+                            <h4>Query Relevance</h4>
+                            <p class="metric-target">>90%</p>
+                            <p class="metric-desc">AI Assistant answers deemed relevant and helpful by L1 analysts</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-column">
+                    <h3>Qualitative Success (UAT Validation)</h3>
+                    <div class="success-card">
+                        <h4>Analyst Feedback</h4>
+                        <ul class="success-list">
+                            <li>✓ Positive feedback from L1 analysts: "This is useful and saves me time"</li>
+                            <li>✓ Analysts would use the Copilot in their daily workflow</li>
+                            <li>✓ Trust established: Summaries and Q&A are accurate and transparent</li>
+                            <li>✓ Demonstrate secure GenAI deployment in compliance operations</li>
+                            <li>✓ Establish foundation for Release 2 (live data) and beyond</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Squad Composition -->
+    <section class="section" id="squad">
+        <div class="container">
+            <h2 class="section-title">Squad Composition</h2>
+
+            <div class="squad-intro">
+                <p>Dedicated team designed for ~19-week engagement, aligned to 3,000 service hours co-innovation budget.</p>
+            </div>
+
+            <div class="squad-section">
+                <h3>HCLTech Core Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-icon">👤</div>
+                        <h4>Senior AI Lead / Architect</h4>
+                        <p class="stakeholder-name">Thomas De Vos</p>
+                        <div class="member-allocation">Part-time (50%)</div>
+                        <div class="member-responsibilities">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Leads technical design and architecture</li>
+                                <li>Co-manages backlog with ING Product Owner</li>
+                                <li>Performs code reviews and quality assurance</li>
+                                <li>Ensures compliance with security standards</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-icon">👤</div>
+                        <h4>Technical Lead</h4>
+                        <p class="stakeholder-name">Chitra</p>
+                        <div class="member-allocation">Part-time (50%)</div>
+                        <div class="member-responsibilities">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Day-to-day technical leadership and sprint execution</li>
+                                <li>Requirements gathering and backlog management</li>
+                                <li>Developer team coordination and code reviews</li>
+                                <li>Technical integration and quality assurance</li>
+                                <li>On-ground coordination with ING teams in India</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-icon">👥</div>
+                        <h4>AI / ML Engineers (2x)</h4>
+                        <div class="member-allocation">Full-time</div>
+                        <div class="member-responsibilities">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Build secure data pipeline</li>
+                                <li>Develop AI agent logic and prompts</li>
+                                <li>Create application UI/API</li>
+                                <li>Implement explainability and logging</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-icon">📋</div>
+                        <h4>Scrum Master</h4>
+                        <div class="member-allocation">Part-time (50%)</div>
+                        <div class="member-responsibilities">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Facilitates sprint ceremonies</li>
+                                <li>Tracks burndown of project hours</li>
+                                <li>Manages dependencies and blockers</li>
+                                <li>Provides transparent progress reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hours-forecast">
+                    <h4>Estimated Hours Breakdown</h4>
+                    <div class="hours-bar">
+                        <div class="hours-segment" style="width: 20%">
+                            <span>Senior AI Lead (50%): ~380 hrs</span>
+                        </div>
+                        <div class="hours-segment" style="width: 20%">
+                            <span>Technical Lead (50%): ~380 hrs</span>
+                        </div>
+                        <div class="hours-segment" style="width: 50%">
+                            <span>2x AI/ML Engineers: ~1,520 hrs</span>
+                        </div>
+                        <div class="hours-segment" style="width: 10%">
+                            <span>SM: ~380 hrs</span>
+                        </div>
+                    </div>
+                    <p class="hours-note"><strong>Total: ~2,660 hours</strong> over 19 weeks, leaving ~340-hour buffer for contingency</p>
+                </div>
+            </div>
+
+            <div class="squad-section">
+                <h3>Required ING Stakeholders</h3>
+                <div class="stakeholder-grid">
+                    <div class="stakeholder-card">
+                        <h4>Product Owner</h4>
+                        <p class="stakeholder-name">Arthur Van Bronswijk</p>
+                        <p class="stakeholder-allocation">Part-time: 4 hours/week</p>
+                        <ul>
+                            <li>Backlog grooming and prioritization</li>
+                            <li>Sprint reviews and validation</li>
+                            <li>Domain decisions and unblocking</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-card">
+                        <h4>L1 Analyst SMEs (2x)</h4>
+                        <p class="stakeholder-allocation">Part-time: 3-4 hours/week</p>
+                        <ul>
+                            <li>Sprints 1-3: Process discovery and domain expertise</li>
+                            <li>Sprints 7-8: Formal UAT execution and feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-card">
+                        <h4>Platform Engineer</h4>
+                        <p class="stakeholder-allocation">As-needed</p>
+                        <ul>
+                            <li>Provision GCP/UAT environments</li>
+                            <li>Configure secure data access</li>
+                            <li>Support network and infrastructure setup</li>
+                        </ul>
+                    </div>
+
+                    <div class="stakeholder-card">
+                        <h4>Compliance & Risk Teams</h4>
+                        <p class="stakeholder-allocation">Sprint 0 + Week 15</p>
+                        <ul>
+                            <li>Early engagement for requirements alignment</li>
+                            <li>Review security and compliance approach</li>
+                            <li>Sign-off before UAT phase begins</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dependencies & Assumptions -->
+    <section class="section section-light" id="dependencies">
+        <div class="container">
+            <h2 class="section-title">Dependencies & Assumptions</h2>
+
+            <div class="dependencies-grid">
+                <div class="dependencies-column">
+                    <h3>Critical Dependencies on ING</h3>
+                    <div class="dependency-card critical">
+                        <h4>🔴 Data Model (Critical Path)</h4>
+                        <p>Provision of comprehensive FCRM/CDT data model and sample data via Vikas (HCL) and Upendra. This is the primary blocker to starting mock dataset development.</p>
+                    </div>
+
+                    <div class="dependency-card high">
+                        <h4>🟠 Platform Access & Onboarding</h4>
+                        <p>Onboarding of 1-2 HCLTech resources (e.g., Kush, Vikas) to ING network. Provision of Azure DevOps project board. Assistance from onboarded resource to fill in GCP/AI governance forms.</p>
+                    </div>
+
+                    <div class="dependency-card high">
+                        <h4>🟠 Environment Decision</h4>
+                        <p>Decision on whether the POC will be built inside ING estate (preferred) or outside. If inside ING, provision GCP UAT environment when ready.</p>
+                    </div>
+
+                    <div class="dependency-card medium">
+                        <h4>🟡 Product Owner Availability</h4>
+                        <p>Arthur Van Bronswijk as dedicated PO for prioritizing backlog, providing domain decisions, and validating outcomes.</p>
+                    </div>
+
+                    <div class="dependency-card medium">
+                        <h4>🟡 SME Access</h4>
+                        <p>Access to 1-2 L1 FCRM analysts for 3-4 hours/week during Sprints 1-3 (discovery) and Sprints 6-8 (UAT).</p>
+                    </div>
+                </div>
+
+                <div class="dependencies-column">
+                    <h3>Key Assumptions</h3>
+                    <div class="assumption-card">
+                        <h4>✓ Mock Data Approach</h4>
+                        <p>The project will commence development using a mock dataset. Connection to live ING data source (FCRM API or DAP) will be planned for Release 2.</p>
+                    </div>
+
+                    <div class="assumption-card">
+                        <h4>✓ Data Model Accuracy</h4>
+                        <p>The FCRM/CDT data model provided by ING will be accurate and comprehensive enough to build a realistic and valuable mock dataset.</p>
+                    </div>
+
+                    <div class="assumption-card">
+                        <h4>✓ GCP Subscriptions</h4>
+                        <p>ING has necessary GCP subscriptions (e.g., Gemini Enterprise) to enable Vertex AI Gemini APIs for the project.</p>
+                    </div>
+
+                    <div class="assumption-card">
+                        <h4>✓ Service Approvals</h4>
+                        <p>Required GCP services (Vertex AI, Cloud Run) and UAT environment are approved for use.</p>
+                    </div>
+
+                    <div class="assumption-card">
+                        <h4>✓ Budget Allocation</h4>
+                        <p>Agreed service hours are dedicated to HCLTech squad effort. All ING-side efforts (PO, SMEs, platform, compliance) are separate.</p>
+                    </div>
+
+                    <div class="assumption-card">
+                        <h4>✓ Scope Discipline</h4>
+                        <p>MVP scope is strictly limited to features described. Scope creep is managed through change control process.</p>
+                    </div>
+
+                    <div class="assumption-card">
+                        <h4>✓ GenAI is Allowed</h4>
+                        <p>While ING has restrictions on "agentic AI" pending broader approval, using GenAI for summarization and Q&A is allowed for this Copilot application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Roadmap -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <h2 class="section-title">Post-MVP Release Roadmap</h2>
+
+            <div class="roadmap-intro">
+                <p>The MVP establishes a foundation for incremental feature expansion. Future releases will enhance capabilities based on UAT learnings and business priorities.</p>
+            </div>
+
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <div class="roadmap-number">R1</div>
+                    <div class="roadmap-content">
+                        <h3>MVP (Current)</h3>
+                        <p class="roadmap-desc">Standalone web app with proactive summarization and interactive Q&A on high-fidelity mock data</p>
+                        <div class="roadmap-features">
+                            <span class="feature-tag">Mock data (FCRM/CDT)</span>
+                            <span class="feature-tag">Summarization + Q&A</span>
+                            <span class="feature-tag">UAT-ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-arrow">→</div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-number">R2</div>
+                    <div class="roadmap-content">
+                        <h3>Live Data Integration</h3>
+                        <p class="roadmap-desc">Connect UAT-validated Copilot to live ING data source (FCRM API or DAP) as decided by ING</p>
+                        <div class="roadmap-features">
+                            <span class="feature-tag">Live FCRM/DAP</span>
+                            <span class="feature-tag">Real case data</span>
+                            <span class="feature-tag">Production ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-arrow">→</div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-number">R3</div>
+                    <div class="roadmap-content">
+                        <h3>Embedded Integration</h3>
+                        <p class="roadmap-desc">Embed Copilot as native widget within FCRM front-end UI for seamless analyst workflow</p>
+                        <div class="roadmap-features">
+                            <span class="feature-tag">FCRM widget</span>
+                            <span class="feature-tag">No context switching</span>
+                            <span class="feature-tag">Inline experience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-arrow">→</div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-number">R4</div>
+                    <div class="roadmap-content">
+                        <h3>Multi-System Data + Unstructured Data</h3>
+                        <p class="roadmap-desc">Expand Copilot to query Quantexa, TMA Tool, and integrate policy documents (SharePoint) for compliance Q&A</p>
+                        <div class="roadmap-features">
+                            <span class="feature-tag">Quantexa + TMA</span>
+                            <span class="feature-tag">Policy RAG</span>
+                            <span class="feature-tag">Single pane</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-arrow">→</div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-number">R5</div>
+                    <div class="roadmap-content">
+                        <h3>Enhanced Actions</h3>
+                        <p class="roadmap-desc">Pending business and AI governance approval, explore report generation and "write-back" capabilities</p>
+                        <div class="roadmap-features">
+                            <span class="feature-tag">Report generation</span>
+                            <span class="feature-tag">Write actions</span>
+                            <span class="feature-tag">Workflow integration</span>
+                        </div>
+                        <p class="roadmap-note"><strong>Note:</strong> Requires business and AI governance approval</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="section section-next-steps" id="next-steps">
+        <div class="container">
+            <h2 class="section-title">Next Steps</h2>
+
+            <div class="next-steps-grid">
+                <div class="next-step-card step-1">
+                    <div class="step-number">1</div>
+                    <h3>Stakeholder Alignment</h3>
+                    <ul>
+                        <li>Review and approve proposal with ING leadership</li>
+                        <li>Confirm Product Owner (Arthur Van Bronswijk) availability</li>
+                        <li>Identify L1 analyst SMEs for discovery and UAT</li>
+                    </ul>
+                </div>
+
+                <div class="next-step-card step-2">
+                    <div class="step-number">2</div>
+                    <h3>Data Model & Onboarding</h3>
+                    <ul>
+                        <li>Receive comprehensive FCRM/CDT data model via Vikas/Upendra</li>
+                        <li>Onboard 1-2 HCLTech resources (Kush, Vikas) to ING network</li>
+                        <li>Set up Azure DevOps project board for tracking</li>
+                        <li>Begin filling in forms for GCP setup and AI governance</li>
+                    </ul>
+                </div>
+
+                <div class="next-step-card step-3">
+                    <div class="step-number">3</div>
+                    <h3>Environment Decision</h3>
+                    <ul>
+                        <li>Confirm whether POC will be built inside ING estate (preferred)</li>
+                        <li>If inside: Provision GCP UAT environment and verify subscriptions</li>
+                        <li>If outside: HCLTech starts on mock data, transition plan for later</li>
+                        <li>Review security architecture and compliance requirements</li>
+                    </ul>
+                </div>
+
+                <div class="next-step-card step-4">
+                    <div class="step-number">4</div>
+                    <h3>Project Kick-off (Target: Week of Nov 23rd)</h3>
+                    <ul>
+                        <li>Mobilize HCLTech squad (AI Lead, 2x Engineers, SM)</li>
+                        <li>Sprint 0: Finalize MVP scope and functional requirements</li>
+                        <li>Begin mock dataset development based on FCRM/CDT data model</li>
+                        <li>Establish communication cadence and track 3,000-hour budget</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h3>Contact Information</h3>
+                <p>For questions or to proceed with this proposal, please contact:</p>
+                <div class="contact-info">
+                    <div class="contact-person">
+                        <strong>Engagement Lead (HCLTech)</strong><br>
+                        Thomas DeVos<br>
+                        thomas.devos@hcltech.com
+                    </div>
+                    <div class="contact-person">
+                        <strong>Product Owner (ING)</strong><br>
+                        Arthur Van Bronswijk<br>
+                        arthur.vanbronswijk@ing.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 HCLTech. Confidential - ING FCRM Data Analyst Copilot MVP Proposal</p>
+                </div>
+                <div class="footer-right">
+                    <p>Co-Innovation Project | 19-Week MVP | 3,000 Service Hours</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--hcltech-blue), var(--electric-violet)); width: 0%; z-index: 9999; transition: width 0.2s;"></div>
+
+    <!-- Floating Navigation Arrows -->
+    <button class="nav-arrow nav-arrow-up" id="nav-arrow-up" aria-label="Previous section" title="Previous section">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    <button class="nav-arrow nav-arrow-down" id="nav-arrow-down" aria-label="Next section" title="Next section">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+</body>
+</html>

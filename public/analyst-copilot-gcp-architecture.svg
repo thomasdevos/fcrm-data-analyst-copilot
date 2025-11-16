@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+  <!-- Define styles -->
+  <defs>
+    <style>
+      .title { font-family: 'Google Sans', Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #202124; }
+      .subtitle { font-family: 'Google Sans', Arial, sans-serif; font-size: 14px; fill: #5f6368; }
+      .section-title { font-family: 'Google Sans', Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #1a73e8; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; fill: #202124; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #5f6368; }
+      .arrow { stroke: #5f6368; stroke-width: 2; fill: none; marker-end: url(#arrowhead); opacity: 0.4; }
+      .data-flow { stroke: #34a853; stroke-width: 2; fill: none; stroke-dasharray: 5,5; marker-end: url(#arrowhead-green); opacity: 0.5; }
+      .key-flow { stroke: #1a73e8; stroke-width: 3; fill: none; marker-end: url(#arrowhead-blue); opacity: 0.7; }
+      
+      /* Component styles */
+      .user-layer { fill: #e8f0fe; stroke: #4285f4; stroke-width: 2; }
+      .app-layer { fill: #fce8e6; stroke: #ea4335; stroke-width: 2; }
+      .ai-layer { fill: #e6f4ea; stroke: #34a853; stroke-width: 2; }
+      .data-layer { fill: #fef7e0; stroke: #fbbc04; stroke-width: 2; }
+      .security-layer { fill: #f3e8fd; stroke: #9334e9; stroke-width: 2; }
+      .external { fill: #f1f3f4; stroke: #5f6368; stroke-width: 2; stroke-dasharray: 5,5; }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#5f6368" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34a853" />
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1a73e8" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" class="title">Analyst Data Copilot - GCP Architecture</text>
+  <text x="700" y="50" text-anchor="middle" class="subtitle">Financial Crime &amp; Fraud Prevention (FCFP) - Agentic AI Solution</text>
+  
+  <!-- Security Perimeter (VPC) -->
+  <rect x="50" y="80" width="1300" height="880" rx="10" class="security-layer" opacity="0.2"/>
+  <text x="70" y="110" class="section-title">🔒 VPC Service Controls &amp; IAM</text>
+  
+  <!-- User/Analyst Layer -->
+  <g id="user-layer">
+    <rect x="100" y="140" width="250" height="100" rx="8" class="user-layer"/>
+    <text x="225" y="165" text-anchor="middle" class="section-title">👤 User Layer</text>
+    <rect x="120" y="180" width="90" height="50" rx="5" fill="#4285f4" opacity="0.8"/>
+    <text x="165" y="200" text-anchor="middle" fill="white" font-size="11" font-weight="bold">L1 FCFP</text>
+    <text x="165" y="215" text-anchor="middle" fill="white" font-size="10">Analyst</text>
+    
+    <rect x="240" y="180" width="90" height="50" rx="5" fill="#4285f4" opacity="0.8"/>
+    <text x="285" y="200" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Web</text>
+    <text x="285" y="215" text-anchor="middle" fill="white" font-size="10">Browser</text>
+  </g>
+  
+  <!-- Application Layer -->
+  <g id="app-layer">
+    <rect x="450" y="140" width="500" height="180" rx="8" class="app-layer"/>
+    <text x="700" y="165" text-anchor="middle" class="section-title">🚀 Application Layer (GCP)</text>
+    
+    <!-- Cloud Run -->
+    <rect x="480" y="185" width="180" height="120" rx="5" fill="#ea4335" opacity="0.15" stroke="#ea4335" stroke-width="1.5"/>
+    <text x="570" y="205" text-anchor="middle" font-weight="bold" font-size="13">Cloud Run / App Engine</text>
+    <rect x="495" y="215" width="150" height="35" rx="4" fill="#fff" stroke="#ea4335" stroke-width="1"/>
+    <text x="570" y="235" text-anchor="middle" class="component-text">Copilot Web UI</text>
+    <rect x="495" y="260" width="150" height="35" rx="4" fill="#fff" stroke="#ea4335" stroke-width="1"/>
+    <text x="570" y="280" text-anchor="middle" class="component-text">REST API</text>
+    
+    <!-- Agent Orchestration -->
+    <rect x="700" y="185" width="220" height="120" rx="5" fill="#34a853" opacity="0.15" stroke="#34a853" stroke-width="1.5"/>
+    <text x="810" y="205" text-anchor="middle" font-weight="bold" font-size="13">Agent Orchestration</text>
+    <rect x="715" y="215" width="190" height="35" rx="4" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="810" y="235" text-anchor="middle" class="component-text">LangChain Framework</text>
+    <rect x="715" y="260" width="90" height="35" rx="4" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="760" y="275" text-anchor="middle" class="small-text">Agent Logic</text>
+    <text x="760" y="287" text-anchor="middle" class="small-text">&amp; Reasoning</text>
+    <rect x="815" y="260" width="90" height="35" rx="4" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="860" y="275" text-anchor="middle" class="small-text">FCRM Tool</text>
+    <text x="860" y="287" text-anchor="middle" class="small-text">(Data Fetch)</text>
+  </g>
+  
+  <!-- Integration Layer -->
+  <g id="integration-layer">
+    <rect x="1000" y="140" width="300" height="180" rx="8" fill="#fef7e0" stroke="#fbbc04" stroke-width="2"/>
+    <text x="1150" y="165" text-anchor="middle" class="section-title">🔌 Integration Layer</text>
+    
+    <rect x="1020" y="185" width="120" height="50" rx="4" fill="#fff" stroke="#fbbc04" stroke-width="1"/>
+    <text x="1080" y="205" text-anchor="middle" class="component-text">Cloud Functions</text>
+    <text x="1080" y="220" text-anchor="middle" class="small-text">(API Triggers)</text>
+    
+    <rect x="1160" y="185" width="120" height="50" rx="4" fill="#fff" stroke="#fbbc04" stroke-width="1"/>
+    <text x="1220" y="205" text-anchor="middle" class="component-text">Secret Manager</text>
+    <text x="1220" y="220" text-anchor="middle" class="small-text">(Credentials)</text>
+    
+    <rect x="1020" y="255" width="260" height="50" rx="4" fill="#fff" stroke="#9334e9" stroke-width="1.5"/>
+    <text x="1150" y="275" text-anchor="middle" font-weight="bold" class="component-text">VPN / Cloud Interconnect</text>
+    <text x="1150" y="290" text-anchor="middle" class="small-text">Secure connection to FCRM</text>
+  </g>
+  
+  <!-- AI/ML Layer -->
+  <g id="ai-layer">
+    <rect x="100" y="360" width="450" height="180" rx="8" class="ai-layer"/>
+    <text x="325" y="385" text-anchor="middle" class="section-title">🤖 AI/ML Layer - Vertex AI</text>
+    
+    <rect x="120" y="405" width="200" height="120" rx="5" fill="#34a853" opacity="0.15" stroke="#34a853" stroke-width="1.5"/>
+    <text x="220" y="425" text-anchor="middle" font-weight="bold" font-size="13">Gemini Pro 2.5</text>
+    <rect x="135" y="440" width="170" height="30" rx="4" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="220" y="460" text-anchor="middle" class="component-text">Natural Language</text>
+    <rect x="135" y="480" width="170" height="30" rx="4" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="220" y="500" text-anchor="middle" class="component-text">Analysis &amp; Summarization</text>
+    
+    <rect x="340" y="405" width="190" height="120" rx="5" fill="#4285f4" opacity="0.15" stroke="#4285f4" stroke-width="1.5"/>
+    <text x="435" y="425" text-anchor="middle" font-weight="bold" font-size="13">Vertex AI Services</text>
+    <rect x="355" y="440" width="160" height="30" rx="4" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="435" y="460" text-anchor="middle" class="component-text">Prompt Engineering</text>
+    <rect x="355" y="480" width="160" height="30" rx="4" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="435" y="500" text-anchor="middle" class="component-text">Model Grounding</text>
+  </g>
+  
+  <!-- Data Layer -->
+  <g id="data-layer">
+    <rect x="600" y="360" width="350" height="180" rx="8" class="data-layer"/>
+    <text x="775" y="385" text-anchor="middle" class="section-title">💾 Data Layer</text>
+    
+    <rect x="620" y="405" width="150" height="70" rx="4" fill="#fff" stroke="#fbbc04" stroke-width="1"/>
+    <text x="695" y="425" text-anchor="middle" font-weight="bold" class="component-text">Cloud Storage</text>
+    <text x="695" y="445" text-anchor="middle" class="small-text">Temporary Data</text>
+    <text x="695" y="460" text-anchor="middle" class="small-text">Logs &amp; Artifacts</text>
+    
+    <rect x="790" y="405" width="140" height="70" rx="4" fill="#fff" stroke="#fbbc04" stroke-width="1"/>
+    <text x="860" y="425" text-anchor="middle" font-weight="bold" class="component-text">BigQuery</text>
+    <text x="860" y="445" text-anchor="middle" class="small-text">(Optional)</text>
+    <text x="860" y="460" text-anchor="middle" class="small-text">Analytics</text>
+  </g>
+  
+  <!-- Monitoring & Logging -->
+  <g id="monitoring-layer">
+    <rect x="1000" y="360" width="300" height="180" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
+    <text x="1150" y="385" text-anchor="middle" class="section-title">📊 Observability</text>
+    
+    <rect x="1020" y="405" width="120" height="50" rx="4" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="1080" y="425" text-anchor="middle" class="component-text">Cloud Logging</text>
+    <text x="1080" y="440" text-anchor="middle" class="small-text">Audit Trails</text>
+    
+    <rect x="1160" y="405" width="120" height="50" rx="4" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="1220" y="425" text-anchor="middle" class="component-text">Cloud Monitoring</text>
+    <text x="1220" y="440" text-anchor="middle" class="small-text">Performance</text>
+    
+    <rect x="1020" y="475" width="260" height="50" rx="4" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="1150" y="495" text-anchor="middle" font-weight="bold" class="component-text">Explainability Layer</text>
+    <text x="1150" y="510" text-anchor="middle" class="small-text">Agent Decision Tracking &amp; Transparency</text>
+  </g>
+  
+  <!-- External Systems -->
+  <g id="external-systems">
+    <rect x="100" y="590" width="850" height="340" rx="8" class="external"/>
+    <text x="525" y="615" text-anchor="middle" class="section-title">🏢 External Systems (ING Infrastructure)</text>
+    
+    <!-- FCRM System -->
+    <rect x="150" y="645" width="350" height="260" rx="8" fill="#fff" stroke="#ea4335" stroke-width="2"/>
+    <text x="325" y="675" text-anchor="middle" font-weight="bold" font-size="15">FCRM System (Primary)</text>
+    
+    <rect x="170" y="695" width="140" height="60" rx="4" fill="#ea4335" opacity="0.15" stroke="#ea4335" stroke-width="1"/>
+    <text x="240" y="715" text-anchor="middle" font-weight="bold" class="component-text">MS SQL Database</text>
+    <text x="240" y="730" text-anchor="middle" class="small-text">Transaction Data</text>
+    <text x="240" y="745" text-anchor="middle" class="small-text">Customer Info</text>
+    
+    <rect x="330" y="695" width="150" height="60" rx="4" fill="#ea4335" opacity="0.15" stroke="#ea4335" stroke-width="1"/>
+    <text x="405" y="715" text-anchor="middle" font-weight="bold" class="component-text">Alert Cases</text>
+    <text x="405" y="730" text-anchor="middle" class="small-text">Case IDs</text>
+    <text x="405" y="745" text-anchor="middle" class="small-text">Alert Metadata</text>
+    
+    <text x="325" y="780" text-anchor="middle" font-size="12" font-style="italic" fill="#5f6368">Read-Only Access for MVP</text>
+    
+    <!-- Future Integrations -->
+    <rect x="170" y="800" width="310" height="90" rx="5" fill="#f1f3f4" stroke="#5f6368" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="325" y="820" text-anchor="middle" font-weight="bold" class="small-text">Future Integrations (Post-MVP)</text>
+    <rect x="180" y="830" width="90" height="35" rx="3" fill="#fff" stroke="#5f6368" stroke-width="0.5"/>
+    <text x="225" y="852" text-anchor="middle" class="small-text">Quantexa</text>
+    <rect x="285" y="830" width="90" height="35" rx="3" fill="#fff" stroke="#5f6368" stroke-width="0.5"/>
+    <text x="330" y="852" text-anchor="middle" class="small-text">TMA Tool</text>
+    <rect x="390" y="830" width="80" height="35" rx="3" fill="#fff" stroke="#5f6368" stroke-width="0.5"/>
+    <text x="430" y="852" text-anchor="middle" class="small-text">SharePoint</text>
+    
+    <!-- UAT Environment -->
+    <rect x="550" y="645" width="350" height="260" rx="8" fill="#e6f4ea" stroke="#34a853" stroke-width="2"/>
+    <text x="725" y="675" text-anchor="middle" font-weight="bold" font-size="15">UAT Environment</text>
+    
+    <rect x="570" y="695" width="140" height="60" rx="4" fill="#34a853" opacity="0.15" stroke="#34a853" stroke-width="1"/>
+    <text x="640" y="715" text-anchor="middle" font-weight="bold" class="component-text">Test Data</text>
+    <text x="640" y="730" text-anchor="middle" class="small-text">Sample Cases</text>
+    <text x="640" y="745" text-anchor="middle" class="small-text">Validation Set</text>
+    
+    <rect x="730" y="695" width="150" height="60" rx="4" fill="#34a853" opacity="0.15" stroke="#34a853" stroke-width="1"/>
+    <text x="805" y="715" text-anchor="middle" font-weight="bold" class="component-text">UAT Testing</text>
+    <text x="805" y="730" text-anchor="middle" class="small-text">L1 Analysts</text>
+    <text x="805" y="745" text-anchor="middle" class="small-text">Validation Phase</text>
+    
+    <rect x="570" y="775" width="310" height="120" rx="5" fill="#fff" stroke="#34a853" stroke-width="1.5"/>
+    <text x="725" y="795" text-anchor="middle" font-weight="bold" class="component-text">Success Metrics (UAT)</text>
+    <text x="725" y="815" text-anchor="middle" class="small-text">⏱️ 20-30% reduction in handling time</text>
+    <text x="725" y="835" text-anchor="middle" class="small-text">✅ &gt;85% proposal accuracy</text>
+    <text x="725" y="855" text-anchor="middle" class="small-text">👍 Positive analyst feedback</text>
+    <text x="725" y="875" text-anchor="middle" class="small-text">🔒 Secure AI deployment demonstrated</text>
+  </g>
+  
+  <!-- Key Data Flow Arrows - Simplified -->
+  
+  <!-- 1. User to Application (Primary Flow) -->
+  <path d="M 330 240 L 480 240" class="key-flow"/>
+  <text x="405" y="230" class="small-text" fill="#1a73e8" font-weight="bold">① User Query</text>
+  
+  <!-- 2. App to Agent Orchestration -->
+  <path d="M 660 245 L 700 245" class="key-flow"/>
+  <text x="680" y="235" class="small-text" fill="#1a73e8" font-weight="bold">②</text>
+  
+  <!-- 3. Agent to Vertex AI (curved path) -->
+  <path d="M 810 305 Q 600 320 325 360" class="key-flow"/>
+  <text x="550" y="315" class="small-text" fill="#1a73e8" font-weight="bold">③ AI Analysis</text>
+  
+  <!-- 4. Integration to FCRM (routed around components) -->
+  <path d="M 1150 320 L 1150 580 L 325 580 L 325 590" class="data-flow"/>
+  <text x="600" y="570" class="small-text" fill="#34a853" font-weight="bold">④ Secure FCRM Query</text>
+  
+  <!-- 5. Summary back to UI -->
+  <path d="M 220 360 Q 220 280 480 280" class="key-flow"/>
+  <text x="280" y="300" class="small-text" fill="#1a73e8" font-weight="bold">⑤ Summary Output</text>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="1000" y="600" width="300" height="180" rx="5" fill="#fff" stroke="#5f6368" stroke-width="1"/>
+    <text x="1150" y="625" text-anchor="middle" font-weight="bold" class="component-text">Legend</text>
+    
+    <line x1="1020" y1="645" x2="1070" y2="645" class="key-flow"/>
+    <text x="1080" y="650" class="small-text">Primary Data Flow</text>
+    
+    <line x1="1020" y1="665" x2="1070" y2="665" class="data-flow"/>
+    <text x="1080" y="670" class="small-text">External Connection</text>
+    
+    <rect x="1020" y="685" width="50" height="15" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+    <text x="1080" y="697" class="small-text">GCP Service</text>
+    
+    <rect x="1020" y="710" width="50" height="15" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+    <text x="1080" y="722" class="small-text">AI/ML Component</text>
+    
+    <rect x="1020" y="735" width="50" height="15" fill="#f1f3f4" stroke="#5f6368" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="1080" y="747" class="small-text">External System</text>
+    
+    <text x="1150" y="770" text-anchor="middle" class="small-text" font-style="italic">Numbered flows show key data path:</text>
+    <text x="1150" y="785" text-anchor="middle" class="small-text" font-style="italic">① Query → ② Orchestration → ③ AI →</text>
+    <text x="1150" y="800" text-anchor="middle" class="small-text" font-style="italic">④ FCRM Data → ⑤ Summary</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="700" y="970" text-anchor="middle" class="small-text" font-weight="bold">HCLTech + ING Co-Innovation Project | 19-Week MVP Timeline | 3,000 Service Hours</text>
+  <text x="700" y="990" text-anchor="middle" class="small-text">Security: VPC-SC, IAM, VPN | Compliance: Audit Logs, Explainability Layer | Tech Stack: Vertex AI, Gemini Pro 2.5, LangChain</text>
+</svg>

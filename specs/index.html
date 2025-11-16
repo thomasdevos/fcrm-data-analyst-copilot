@@ -1,0 +1,3145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ING OMaaP AI-Powered Onboarding Assistant - Delivery Proposal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1 class="main-title">ING OMaaP<br><span class="highlight">AI-Powered Onboarding Assistant</span></h1>
+                    <p class="subtitle">Discovery, Assessment & MVP Delivery Proposal</p>
+                </div>
+                <div class="header-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Delivery Partner</span>
+                        <span class="meta-value">HCLTech</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Proposal Date</span>
+                        <span class="meta-value">November 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav" id="sticky-nav">
+        <div class="container">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#executive-summary" class="nav-link">Executive Summary</a></li>
+                <li><a href="#business-context" class="nav-link">Business Context</a></li>
+                <li><a href="#success-criteria" class="nav-link">Success Criteria</a></li>
+                <li><a href="#technology" class="nav-link">Technology</a></li>
+                <li><a href="#functional-scoping" class="nav-link">Scoping Session</a></li>
+                <li><a href="#current-scope" class="nav-link">Current Scope</a></li>
+                <li><a href="#assumptions-dependencies" class="nav-link">Assumptions</a></li>
+                <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                <li><a href="#discovery" class="nav-link">Discovery</a></li>
+                <li><a href="#mvp-roadmap" class="nav-link">MVP Roadmap</a></li>
+                <li><a href="#dependencies" class="nav-link">Dependencies</a></li>
+                <li><a href="#challenges" class="nav-link">Challenges</a></li>
+                <li><a href="#data-architecture" class="nav-link">Data Sources</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="#next-steps" class="nav-link">Next Steps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Executive Summary -->
+    <section class="section section-executive" id="executive-summary">
+        <div class="container">
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="executive-grid">
+                <div class="executive-card card-primary">
+                    <h3>The Challenge</h3>
+                    <p>ING's Order Management as a Platform (OMaaP) serves 6-7 countries with centralized payment processing. Currently 5-7 operational support engineers and a few developers daily handle high volumes of repetitive technical, functional, and operational queries from tenant countries, leading to response delays and resource strain that is unsustainable with the projected 5x growth by July 2026.</p>
+                </div>
+                <div class="executive-card card-secondary">
+                    <h3>The Solution</h3>
+                    <p>Deploy a multi-agent AI system to provide instant, context-aware responses to tenant queries, leveraging API-based data sources (Inquiry API, Forge, Orange Sharing, SharePoint, ad hoc sources) with authenticated access and strict security standards including ISO/IEC 25010 compliance.</p>
+                </div>
+                <div class="executive-card card-accent">
+                    <h3>Expected Impact</h3>
+                    <ul class="impact-list">
+                        <li><strong>50-70%</strong> reduction in support tickets requiring human intervention</li>
+                        <li><strong><2 seconds</strong> AI response time for auto-resolvable queries (50-60% of all queries)</li>
+                        <li><strong>24/7</strong> availability for tenant queries</li>
+                        <li>Free up 5-7 FTEs for strategic work</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="proposal-overview">
+                <h3>Proposal Overview</h3>
+                <p>This proposal outlines a <strong>phased approach</strong> starting with a <strong>2-week Discovery & Assessment</strong> to evaluate the optimal AI platform (Microsoft 365 Copilot vs Google Gemini), followed by a <strong>staged MVP development</strong> across three releases, ensuring incremental value delivery and risk mitigation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Context -->
+    <section class="section section-light" id="business-context">
+        <div class="container">
+            <h2 class="section-title">Business Context & Objectives</h2>
+
+            <div class="context-grid">
+                <div class="context-card">
+                    <h3>Current Operating Model</h3>
+                    <div class="context-content">
+                        <div class="stat-row">
+                            <div class="stat">
+                                <span class="stat-number">6-7</span>
+                                <span class="stat-label">ING Countries</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">5-7</span>
+                                <span class="stat-label">Support Engineers</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Support Coverage</span>
+                            </div>
+                        </div>
+                        <p>OMaaP (Order Manager as a Platform) currently handles payment processing across multiple countries and supports tenants who frequently raise queries about basic OMaaP information and architecture, tenant code contribution model and workflow, and configured business rules and operational guidelines.</p>
+                        <div class="current-volume-box">
+                            <h4>Current Support Volume (Since September 2025)</h4>
+                            <ul>
+                                <li><strong>40-50</strong> support questions via incidents per day</li>
+                                <li><strong>Similar number</strong> of queries on Teams support channels</li>
+                                <li><strong>A few</strong> questions via emails</li>
+                            </ul>
+                            <p class="growth-projection"><strong>Growth Projection:</strong> With OMaaP platform expected to process more payments globally, the volume of queries is projected to grow <strong>5x by July 2026</strong>.</p>
+                            <p class="unsustainable-note">Currently, 5-7 operational support engineers and a few developers daily handle these queries, which is <strong>unsustainable</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="context-card">
+                    <h3>Key Pain Points</h3>
+                    <ul class="pain-points">
+                        <li><span class="bullet-icon">🔴</span> <strong>High support ticket volume:</strong> Repetitive questions across multiple countries</li>
+                        <li><span class="bullet-icon">🔴</span> <strong>Response time delays:</strong> Support engineers overwhelmed with queries</li>
+                        <li><span class="bullet-icon">🔴</span> <strong>Knowledge fragmentation:</strong> Information scattered across Forge, Orange Sharing, SharePoint</li>
+                        <li><span class="bullet-icon">🔴</span> <strong>Onboarding complexity:</strong> Technical and functional questions during tenant integration</li>
+                        <li><span class="bullet-icon">🔴</span> <strong>Scalability concerns:</strong> Current model doesn't scale with additional countries</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="objectives-section">
+                <h3>Strategic Objectives</h3>
+                <p class="objectives-intro">Build agentic capabilities for OMaaP operations to handle and support engineers to:</p>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-number">01</div>
+                        <h4>Reduce Repetitive Support Queries</h4>
+                        <p>Automate responses to common questions, freeing engineers from repetitive work</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">02</div>
+                        <h4>Provide Instant, Accurate Answers</h4>
+                        <p>Deliver answers to tenants before escalation to the operations squad</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">03</div>
+                        <h4>Enable Payment Details Queries</h4>
+                        <p>Provide means to query payment details through natural language interface</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">04</div>
+                        <h4>View Business Rules & Configuration</h4>
+                        <p>Provide means to view business rules and tenant configuration on-demand</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">05</div>
+                        <h4>Study OMaaP Architecture & Processes</h4>
+                        <p>Provide means to study and learn about OMaaP architecture and contribution model</p>
+                    </div>
+                    <div class="objective-card">
+                        <div class="objective-number">06</div>
+                        <h4>Improve Efficiency</h4>
+                        <p>Free up engineers for high-value tasks and strategic initiatives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Criteria -->
+    <section class="section section-success" id="success-criteria">
+        <div class="container">
+            <h2 class="section-title">Success Criteria & Metrics</h2>
+
+            <div class="metrics-intro">
+                <p class="intro-text">Success will be measured through both <strong>quantitative KPIs</strong> and <strong>qualitative feedback</strong>, tracked throughout discovery, POC, and MVP phases.</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metrics-column">
+                    <h3 class="metrics-heading">Quantitative Metrics</h3>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">📉</span>
+                            <h4>Support Ticket Reduction</h4>
+                        </div>
+                        <div class="metric-baseline">
+                            <span class="label">Baseline:</span>
+                            <span class="value">Current incident volume per country (40-50 incidents/day since Sept 2025)</span>
+                        </div>
+                        <div class="metric-target">
+                            <span class="label">Target:</span>
+                            <span class="value">50-70% of tickets automatically resolved by AI without human intervention within 3 months post-MVP</span>
+                        </div>
+                        <div class="metric-measurement">
+                            <span class="label">How:</span>
+                            <span class="value">Track tickets tagged as "answerable by AI" vs. escalated</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">⚡</span>
+                            <h4>Response Time Improvement</h4>
+                        </div>
+                        <div class="metric-baseline">
+                            <span class="label">Baseline:</span>
+                            <span class="value">Average response time from support teams channel</span>
+                        </div>
+                        <div class="metric-target">
+                            <span class="label">Target:</span>
+                            <span class="value"><2 seconds AI response time for auto-resolvable queries (50-60% of queries fully resolved without human escalation)</span>
+                        </div>
+                        <div class="metric-measurement">
+                            <span class="label">How:</span>
+                            <span class="value">Track AI response latency, auto-resolution rate, and deflection rate (% requiring human escalation)</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">👥</span>
+                            <h4>User Adoption Rate</h4>
+                        </div>
+                        <div class="metric-baseline">
+                            <span class="label">Baseline:</span>
+                            <span class="value">0% (new capability)</span>
+                        </div>
+                        <div class="metric-target">
+                            <span class="label">Target:</span>
+                            <span class="value">70% of tenants using AI assistant within 2 months of rollout</span>
+                        </div>
+                        <div class="metric-measurement">
+                            <span class="label">How:</span>
+                            <span class="value">Track unique active users per country + query volume</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">🎯</span>
+                            <h4>Answer Accuracy & Deflection</h4>
+                        </div>
+                        <div class="metric-baseline">
+                            <span class="label">Baseline:</span>
+                            <span class="value">Human support accuracy ~95%</span>
+                        </div>
+                        <div class="metric-target">
+                            <span class="label">Target:</span>
+                            <span class="value">90%+ accuracy, 65% deflection rate (queries resolved without escalation)</span>
+                        </div>
+                        <div class="metric-measurement">
+                            <span class="label">How:</span>
+                            <span class="value">User feedback (thumbs up/down) + escalation tracking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-column">
+                    <h3 class="metrics-heading">Qualitative Metrics</h3>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">⭐</span>
+                            <h4>Tenant Satisfaction Score</h4>
+                        </div>
+                        <div class="metric-content">
+                            <p>Post-interaction surveys measuring satisfaction with AI responses</p>
+                            <div class="metric-target">
+                                <span class="label">Target:</span>
+                                <span class="value">4.2/5.0 average rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">💬</span>
+                            <h4>Support Engineer Feedback</h4>
+                        </div>
+                        <div class="metric-content">
+                            <p>Qualitative assessment of workload reduction and ability to focus on complex issues</p>
+                            <div class="metric-target">
+                                <span class="label">Target:</span>
+                                <span class="value">Positive feedback from 80%+ of support team</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">🔄</span>
+                            <h4>Continuous Improvement</h4>
+                        </div>
+                        <div class="metric-content">
+                            <p>Track unanswered questions and gaps to improve knowledge base and model performance</p>
+                            <div class="metric-target">
+                                <span class="label">Target:</span>
+                                <span class="value">Monthly analysis of failures with remediation plan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card highlight-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">🏆</span>
+                            <h4>Success Definition</h4>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Project considered successful when:</strong></p>
+                            <ul class="success-checklist">
+                                <li>✓ 50-70% deflection rate (queries resolved without human escalation)</li>
+                                <li>✓ <2 seconds AI response time for auto-resolvable queries (50-60% of all queries)</li>
+                                <li>✓ 70%+ adoption across tenant countries</li>
+                                <li>✓ 90%+ accuracy maintained on auto-resolved queries</li>
+                                <li>✓ All security/compliance requirements met</li>
+                                <li>✓ Support team workload demonstrably reduced</li>
+                            </ul>
+                            <div class="metric-clarification">
+                                <p><strong>Important Clarification:</strong> The <2 seconds response time applies to AI response latency for queries that can be auto-resolved (estimated 50-60% of all queries based on payment data lookups and common FAQs). Complex queries requiring investigation, human judgment, or escalation will follow standard incident resolution processes with realistic timelines. Success is measured by deflection rate (% of queries resolved without human intervention) rather than universal sub-2-second resolution.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="measurement-approach">
+                <h3>Measurement Approach</h3>
+                <div class="approach-steps">
+                    <div class="approach-step">
+                        <div class="step-number">1</div>
+                        <h4>Baseline Establishment (Week 1-2)</h4>
+                        <p>Gather historical data from incident tracking system, Teams support channel, and support engineer interviews</p>
+                    </div>
+                    <div class="approach-arrow">→</div>
+                    <div class="approach-step">
+                        <div class="step-number">2</div>
+                        <h4>POC Validation (Week 3-4)</h4>
+                        <p>Test accuracy, response times, and feasibility with sample queries</p>
+                    </div>
+                    <div class="approach-arrow">→</div>
+                    <div class="approach-step">
+                        <div class="step-number">3</div>
+                        <h4>MVP Monitoring (Ongoing)</h4>
+                        <p>Real-time dashboards tracking all KPIs with weekly reviews</p>
+                    </div>
+                    <div class="approach-arrow">→</div>
+                    <div class="approach-step">
+                        <div class="step-number">4</div>
+                        <h4>Continuous Optimization</h4>
+                        <p>Monthly retrospectives with improvements backlog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Evaluation -->
+    <section class="section section-tech" id="technology">
+        <div class="container">
+            <h2 class="section-title">Technology Platform Evaluation</h2>
+
+            <div class="tech-intro">
+                <p>A critical component of the Discovery phase is evaluating the optimal AI platform for OMaaP's specific requirements. Both Microsoft 365 Copilot and Google Gemini are ING-approved options, but each has distinct advantages and limitations.</p>
+            </div>
+
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div class="comparison-cell header-cell">Evaluation Criteria</div>
+                    <div class="comparison-cell header-cell platform-ms">Microsoft 365 Copilot</div>
+                    <div class="comparison-cell header-cell platform-gemini">Google Gemini (Vertex AI)</div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>ING Enterprise Integration</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ Already deployed enterprise-wide</div>
+                        <p>All ING employees have access to M365 Copilot</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ Approved & in use on Vista platform</div>
+                        <p>ING's data platform already uses Vertex AI, Workbench, and Gemini</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Elastic/Cassandra Connectivity</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-poor">✗ No current access to Elastic</div>
+                        <p>Cannot create MCP servers or custom connectors in ING environment</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-excellent">✓✓ Full integration capability</div>
+                        <p>Can connect to Elastic, Cassandra, ELK via Vertex AI Workbench</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Agent Mode Capabilities</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-fair">△ Limited to conversational mode</div>
+                        <p>Requires Enterprise license for advanced agent features</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-excellent">✓✓ Full agent framework support</div>
+                        <p>Supports complex reasoning, tool use, multi-step queries</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Multi-Source RAG</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-fair">△ Limited to M365 Graph + approved connectors</div>
+                        <p>Cannot easily integrate Forge, Orange Sharing, SharePoint</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-excellent">✓✓ Flexible data ingestion</div>
+                        <p>Can ingest from multiple sources via Vector Search, Cloud Storage</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Multitenancy & RBAC</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ Built-in Azure AD integration</div>
+                        <p>Leverages existing ING identity management</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ Configurable IAM policies</div>
+                        <p>Requires custom implementation of tenant isolation</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Data Privacy & Compliance</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ No training on tenant data (Enterprise)</div>
+                        <p>Meets GDPR, PCI DSS requirements</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ Customer data not used for training</div>
+                        <p>Approved version meets ING compliance standards</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Customization & Extensibility</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-fair">△ Limited plugin ecosystem</div>
+                        <p>Constrained by ING's M365 configuration</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-excellent">✓✓ Highly customizable</div>
+                        <p>Python SDK, custom tools, function calling, grounding</p>
+                    </div>
+                </div>
+
+                <div class="comparison-row">
+                    <div class="comparison-cell criteria-cell">
+                        <strong>Cost Model</strong>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-good">✓ Already included in enterprise license</div>
+                        <p>Marginal cost for additional usage</p>
+                    </div>
+                    <div class="comparison-cell">
+                        <div class="rating rating-fair">△ Pay-per-token usage</div>
+                        <p>Predictable but requires budget allocation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendation-section">
+                <h3>Preliminary Recommendation: Google Gemini (Vertex AI)</h3>
+                <div class="recommendation-content">
+                    <div class="recommendation-rationale">
+                        <h4>Rationale</h4>
+                        <ul class="rationale-list">
+                            <li><strong>Critical capability gap:</strong> MS 365 Copilot cannot access Elastic/Cassandra (core payment data sources)</li>
+                            <li><strong>Technical alignment:</strong> Gemini already approved and operational on ING's Vista data platform</li>
+                            <li><strong>Architectural flexibility:</strong> Agent mode + multi-source RAG essential for OMaaP use case</li>
+                            <li><strong>Extensibility:</strong> Staged roadmap requires integration with Forge, Orange Sharing, SharePoint beyond initial payment data</li>
+                            <li><strong>Future-proofing:</strong> Gemini provides path to advanced features (function calling, grounding, custom tools)</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-validation">
+                        <h4>Discovery Phase Validation</h4>
+                        <p>The 2-week Discovery & Assessment will <strong>empirically validate</strong> this recommendation through:</p>
+                        <ol class="validation-list">
+                            <li>Proof-of-concept testing with both platforms using sample OMaaP queries</li>
+                            <li>Technical feasibility analysis of Elastic/Cassandra connectivity</li>
+                            <li>Performance benchmarking (latency, accuracy, context handling)</li>
+                            <li>Security/compliance verification with ING standards</li>
+                            <li>Cost-benefit analysis for 3-year horizon</li>
+                        </ol>
+                        <p class="validation-note"><strong>Decision Point:</strong> Platform selection finalized at end of Week 2 with data-driven justification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Functional Scoping Session -->
+    <section class="section section-light" id="functional-scoping">
+        <div class="container">
+            <h2 class="section-title">Functional Scoping Session</h2>
+
+            <div class="scoping-intro">
+                <p>Before commencing the Discovery phase, we propose a <strong>structured functional scoping session</strong> to ensure complete alignment between ING and HCLTech teams on objectives, constraints, and success criteria.</p>
+            </div>
+
+            <div class="scoping-grid">
+                <div class="scoping-card">
+                    <div class="scoping-icon">🎯</div>
+                    <h3>Session Objectives</h3>
+                    <ul>
+                        <li>Validate business requirements and user personas</li>
+                        <li>Define clear boundaries for MVP scope</li>
+                        <li>Identify integration touch points and dependencies</li>
+                        <li>Establish success metrics and acceptance criteria</li>
+                        <li>Review security and compliance requirements</li>
+                        <li>Align on technology platform preferences</li>
+                    </ul>
+                </div>
+
+                <div class="scoping-card">
+                    <div class="scoping-icon">👥</div>
+                    <h3>Required Participants</h3>
+                    <ul>
+                        <li><strong>ING Side:</strong> Sanjay (Product Owner), Support Engineers (2-3), Technical Architect, Security/Compliance Representative</li>
+                        <li><strong>HCLTech Side:</strong> Thomas (Engagement Lead and Lead AI Architect), Chitra (Technical Lead), Sudhakar (Advisor)</li>
+                    </ul>
+                </div>
+
+                <div class="scoping-card">
+                    <div class="scoping-icon">📋</div>
+                    <h3>Session Agenda (3 hours)</h3>
+                    <div class="agenda-timeline">
+                        <div class="agenda-item">
+                            <span class="agenda-time">0:00 - 0:30</span>
+                            <span class="agenda-activity">Business Context Review & Problem Statement</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-time">0:30 - 1:00</span>
+                            <span class="agenda-activity">User Personas & Use Case Walkthrough</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-time">1:00 - 1:30</span>
+                            <span class="agenda-activity">Technical Architecture Discussion (Gemini vs MS 365)</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-time">1:30 - 2:00</span>
+                            <span class="agenda-activity">Data Sources & Integration Points Review</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-time">2:00 - 2:30</span>
+                            <span class="agenda-activity">Security, Compliance & RBAC Requirements</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="agenda-time">2:30 - 3:00</span>
+                            <span class="agenda-activity">Success Criteria Finalization & Q&A</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scoping-card">
+                    <div class="scoping-icon">📦</div>
+                    <h3>Session Deliverables</h3>
+                    <ul>
+                        <li>Documented functional requirements (MoSCoW prioritized)</li>
+                        <li>Confirmed user personas with access levels</li>
+                        <li>Data source access requirements checklist</li>
+                        <li>Security and compliance sign-off criteria</li>
+                        <li>Agreed MVP scope and out-of-scope items</li>
+                        <li>Platform preference confirmation (Gemini or MS 365)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scoping-outcome">
+                <h3>Expected Outcome</h3>
+                <p>A <strong>Functional Scoping Document</strong> that serves as the foundation for the Discovery phase, ensuring no critical requirements are missed and all stakeholders have a shared understanding of the project scope, constraints, and success definition.</p>
+                <div class="scoping-timing">
+                    <strong>Timing:</strong> To be scheduled within 1 week of proposal approval, before Discovery phase kick-off
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Understanding & Scope -->
+    <section class="section section-scope" id="current-scope">
+        <div class="container">
+            <h2 class="section-title">Current Understanding & Scope</h2>
+
+            <div class="scope-intro">
+                <p>Based on initial discussions with Sanjay (ING Product Owner) and the HCLTech team, this is our <strong>current understanding</strong> of the OMaaP AI Assistant requirements. Items marked as <span class="tbd-badge">TBD</span> will be clarified during the Discovery phase.</p>
+            </div>
+
+            <div class="understanding-sections">
+                <div class="understanding-section">
+                    <h3>✓ What We Know</h3>
+
+                    <div class="know-category">
+                        <h4>Business Context</h4>
+                        <ul class="know-list">
+                            <li><strong>6-7 ING countries</strong> onboarding to OMaaP platform (Germany, Italy, Spain, Romania, etc.)</li>
+                            <li><strong>8-10 support engineers</strong> handling tenant questions 24/7</li>
+                            <li><strong>High volume</strong> of repetitive technical and functional questions</li>
+                            <li><strong>Support channels:</strong> OMaaP Support Portal, Teams support channel, Email</li>
+                            <li><strong>Multi-tenant architecture:</strong> Each country is a separate tenant with data isolation</li>
+                        </ul>
+                    </div>
+
+                    <div class="know-category">
+                        <h4>Current System - Harmonia Application</h4>
+                        <ul class="know-list">
+                            <li><strong>Browser-based</strong> dashboard application</li>
+                            <li>Provides <strong>factual representation</strong> of payment landscape</li>
+                            <li>Serves dashboards and queries by channel/entity</li>
+                            <li>Already has <strong>RBAC implemented:</strong> Italy cannot see Germany data</li>
+                        </ul>
+                    </div>
+
+                    <div class="know-category">
+                        <h4>Data Sources (Confirmed)</h4>
+                        <ul class="know-list">
+                            <li><strong>Inquiry API:</strong> Payment transaction details and processing information</li>
+                            <li><strong>Forge:</strong> OMaaP platform documentation (internal documentation system)</li>
+                            <li><strong>Orange Sharing:</strong> Internal knowledge sharing and documentation platform</li>
+                            <li><strong>SharePoint:</strong> Document management and team collaboration</li>
+                            <li><strong>Ad Hoc Data Sources:</strong> Excel files, PDFs, and other document formats</li>
+                            <li><strong>OMaaP Code Repositories:</strong> Limited read-only access for code contribution guidance</li>
+                        </ul>
+                        <div class="clarification-note">
+                            <strong>Note:</strong> Agents access payment data via <strong>Inquiry API</strong>, not direct database connections. Elastic Search serves as the backend indexing and search layer for multi-source document retrieval.
+                        </div>
+                    </div>
+
+                    <div class="know-category">
+                        <h4>User Personas (Proposed)</h4>
+                        <ul class="know-list">
+                            <li><strong>Stage 1:</strong> Tenants (ING country entities - primary users)</li>
+                            <li><strong>Stage 2:</strong> PSS Engineers (support team members)</li>
+                            <li><strong>Stage 3:</strong> General ING Engineers (developers building extensions)</li>
+                        </ul>
+                    </div>
+
+                    <div class="know-category">
+                        <h4>Platform Options (ING-Approved)</h4>
+                        <ul class="know-list">
+                            <li><strong>Microsoft 365 Copilot:</strong> Already deployed enterprise-wide at ING</li>
+                            <li><strong>Google Gemini (Vertex AI):</strong> Approved and operational on ING's Vista data platform</li>
+                            <li><strong>Decision point:</strong> 2-week Discovery phase agreed to evaluate and select</li>
+                        </ul>
+                    </div>
+
+                    <div class="know-category">
+                        <h4>Success Criteria (High-Level)</h4>
+                        <ul class="know-list">
+                            <li>Reduce support ticket volume</li>
+                            <li>Faster response times to tenant questions</li>
+                            <li>Reduce load on support engineers (free them for complex issues)</li>
+                            <li>Deliver right information within right time</li>
+                            <li>High adoption rate from tenant countries</li>
+                        </ul>
+                    </div>
+
+                    <div class="know-category">
+                        <h4>Compliance & Security Requirements (Confirmed)</h4>
+                        <ul class="know-list">
+                            <li><strong>RBAC:</strong> One country tenant cannot access another country's data</li>
+                            <li><strong>GDPR</strong> compliance required</li>
+                            <li><strong>PCI DSS:</strong> Payment data handling standards</li>
+                            <li><strong>Data masking:</strong> PII protection for sensitive payment information</li>
+                            <li><strong>No model training:</strong> Payment data must NOT be used to train LLMs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="understanding-section">
+                    <h3>? What We Need to Discover</h3>
+
+                    <div class="discover-category">
+                        <h4>Baseline Metrics <span class="tbd-badge">TBD in Discovery</span></h4>
+                        <ul class="discover-list">
+                            <li>Current support incident volume (from incident tracking system)</li>
+                            <li>Average response times per query type</li>
+                            <li>Support engineer capacity and workload breakdown</li>
+                            <li>Most frequent questions (categorized by type)</li>
+                            <li>Typical use case scenarios and query patterns</li>
+                        </ul>
+                    </div>
+
+                    <div class="discover-category">
+                        <h4>Technical Details <span class="tbd-badge">TBD in Discovery</span></h4>
+                        <ul class="discover-list">
+                            <li>Elastic schema, query patterns, and API access methods</li>
+                            <li>Cassandra data model structure and query capabilities</li>
+                            <li>ELK log format, retention policies, and searchability</li>
+                            <li>Forge/Orange Sharing/SharePoint API access and content structure</li>
+                            <li>Harmonia app architecture and integration points for chat interface</li>
+                            <li>ING network access, VPN requirements, firewall rules</li>
+                        </ul>
+                    </div>
+
+                    <div class="discover-category">
+                        <h4>Platform-Specific Questions <span class="tbd-badge">TBD in Discovery</span></h4>
+                        <ul class="discover-list">
+                            <li><strong>MS 365 Copilot:</strong> Enterprise license availability? Agent capabilities enabled?</li>
+                            <li><strong>MS 365 Copilot:</strong> Which plugins/connectors available in ING's M365 environment?</li>
+                            <li><strong>Gemini/Vertex AI:</strong> Which specific version approved? (Gemini Pro, Flash, Ultra?)</li>
+                            <li><strong>Both:</strong> Latest LLM model versions (GPT-4o, GPT-5 when available, Gemini 2.5, etc.)</li>
+                            <li><strong>Both:</strong> Budget allocation and cost constraints</li>
+                        </ul>
+                    </div>
+
+                    <div class="discover-category">
+                        <h4>Success Criteria Specifics <span class="tbd-badge">TBD in Scoping Session</span></h4>
+                        <ul class="discover-list">
+                            <li>Target deflection rate (% of queries resolved without human escalation, e.g., 50-70%?)</li>
+                            <li>Target AI response latency (e.g., <2 seconds for auto-resolvable queries?)</li>
+                            <li>Adoption rate targets (e.g., 70% of tenants within 2 months?)</li>
+                            <li>Accuracy requirements (e.g., 90%+ correct responses on auto-resolved queries?)</li>
+                            <li>Acceptable escalation rate (% requiring human intervention, e.g., 30-50%?)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scope-summary">
+                <h3>Proposed Scope Summary</h3>
+                <div class="scope-stages">
+                    <div class="scope-stage">
+                        <h4>Stage 1: Payment Data Assistant</h4>
+                        <p><strong>Focus:</strong> Tenant users querying Elastic and Cassandra for payment information</p>
+                        <p><strong>Goal:</strong> Replicate Harmonia dashboard capabilities via conversational interface</p>
+                    </div>
+                    <div class="scope-stage">
+                        <h4>Stage 2: Knowledge Base Integration</h4>
+                        <p><strong>Focus:</strong> Add Forge, Orange Sharing, SharePoint, and OMaaP portal as sources</p>
+                        <p><strong>Users:</strong> Tenants + PSS Engineers</p>
+                        <p><strong>Goal:</strong> Answer technical/functional questions about OMaaP platform</p>
+                    </div>
+                    <div class="scope-stage">
+                        <h4>Stage 3: Developer Assistance</h4>
+                        <p><strong>Focus:</strong> Azure DevOps, SDKs, extension development guidance</p>
+                        <p><strong>Users:</strong> Tenants + PSS Engineers + General ING Engineers</p>
+                        <p><strong>Goal:</strong> Support OMaaP extension development and onboarding</p>
+                    </div>
+                </div>
+                <div class="scope-note">
+                    <strong>Note:</strong> Stage prioritization and scope may be adjusted based on Discovery findings and business priorities.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assumptions & Dependencies -->
+    <section class="section section-assumptions" id="assumptions-dependencies">
+        <div class="container">
+            <h2 class="section-title">Assumptions & Dependencies</h2>
+
+            <div class="assumptions-intro">
+                <p>The following assumptions and dependencies must be validated during the Discovery phase. Each item includes validation criteria and potential impact if assumptions prove incorrect.</p>
+            </div>
+
+            <div class="assumptions-grid">
+                <!-- Platform Assumptions -->
+                <div class="assumption-category">
+                    <h3>🔧 Platform Assumptions</h3>
+
+                    <div class="assumption-item critical">
+                        <div class="assumption-header">
+                            <h4>Microsoft 365 Copilot Capabilities</h4>
+                            <span class="priority-badge critical">Critical</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> ING has Microsoft 365 Enterprise license with Agent Builder capabilities enabled.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Confirm exact M365 license tier at ING</li>
+                                <li>Verify Agent Builder/Declarative Agent capabilities are enabled</li>
+                                <li>Confirm whether conversational mode limitations apply</li>
+                            </ul>
+                            <p><strong>Impact if Incorrect:</strong> MS 365 Copilot may be limited to conversational mode without custom agent capabilities, significantly reducing viability as platform choice.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item critical">
+                        <div class="assumption-header">
+                            <h4>Required Plugins & Connectors</h4>
+                            <span class="priority-badge critical">Critical</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Required for MS 365 Copilot Solution:</strong></p>
+                            <ul>
+                                <li><strong>Elasticsearch Plugin</strong> <span class="tbd-badge">Approval TBD</span> - For querying payment transaction data</li>
+                                <li><strong>Cassandra/NoSQL Connector</strong> <span class="tbd-badge">Approval TBD</span> - For payment information model access</li>
+                                <li><strong>Custom API Connector</strong> <span class="tbd-badge">Approval TBD</span> - For ELK cluster and Forge documentation</li>
+                                <li><strong>Azure AD Integration</strong> <span class="tbd-badge">Config TBD</span> - For RBAC and tenant isolation</li>
+                            </ul>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Review ING's approved M365 plugin catalog</li>
+                                <li>Identify which connectors are pre-approved vs require security review</li>
+                                <li>Determine approval timeline for new plugins (if needed)</li>
+                            </ul>
+                            <p><strong>Impact if Unavailable:</strong> Without these plugins, MS 365 Copilot cannot access OMaaP data sources, making it non-viable.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item high">
+                        <div class="assumption-header">
+                            <h4>LLM Model Versions</h4>
+                            <span class="priority-badge high">High</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Microsoft Path:</strong></p>
+                            <ul>
+                                <li>Azure OpenAI: <strong>GPT-4, GPT-4 Turbo, GPT-5, or latest approved version</strong></li>
+                                <li>Specific model version to be determined based on ING's Azure OpenAI Service configuration</li>
+                            </ul>
+                            <p><strong>Google Path:</strong></p>
+                            <ul>
+                                <li>Gemini model: <strong>Gemini 2.5 Pro, Flash, or latest approved version</strong></li>
+                                <li>Vertex AI model selection based on ING's Vista platform approved models</li>
+                            </ul>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Confirm which model versions are currently approved on ING's Azure OpenAI Service</li>
+                                <li>Confirm which Gemini versions are approved on Vista/Vertex AI platform</li>
+                                <li>Understand approval process for newer models (GPT-5, Gemini 2.5+)</li>
+                            </ul>
+                            <p><strong>Decision Criteria:</strong> Latest available model with best balance of cost, latency, and accuracy for RAG use cases.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item high">
+                        <div class="assumption-header">
+                            <h4>Google Gemini/Vertex AI Access</h4>
+                            <span class="priority-badge high">High</span>
+                            <span class="status-badge confirmed">Partially Confirmed</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Known:</strong> Gemini is operational on ING's Vista data platform.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Confirm OMaaP platform can access Vista/Vertex AI infrastructure</li>
+                                <li>Verify budget allocation for Gemini API usage</li>
+                                <li>Understand authentication/authorization model between OMaaP and Vista</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Source Access Assumptions -->
+                <div class="assumption-category">
+                    <h3>💾 Data Source Access Assumptions</h3>
+
+                    <div class="assumption-item critical">
+                        <div class="assumption-header">
+                            <h4>Elastic Cluster Access</h4>
+                            <span class="priority-badge critical">Critical</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> AI assistant can be granted read-only API access to Elastic cluster with RBAC controls.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Elastic cluster version and API capabilities</li>
+                                <li>Existing RBAC implementation (tenant-level isolation)</li>
+                                <li>Query performance and rate limiting considerations</li>
+                                <li>Service account creation process and approval timeline</li>
+                            </ul>
+                            <p><strong>Dependency:</strong> Security team approval for API service account with tenant-scoped permissions.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item critical">
+                        <div class="assumption-header">
+                            <h4>Cassandra Database Access</h4>
+                            <span class="priority-badge critical">Critical</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> Read-only CQL access can be provisioned with row-level security for tenant isolation.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Cassandra version and data model structure</li>
+                                <li>How tenant isolation is currently enforced</li>
+                                <li>Query patterns and performance characteristics</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item high">
+                        <div class="assumption-header">
+                            <h4>ELK Cluster (Logging) Access</h4>
+                            <span class="priority-badge high">High</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> Separate ELK cluster for application logs is accessible via API with tenant filtering.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Log retention policies and available time range</li>
+                                <li>Log structure and searchability</li>
+                                <li>API access method and authentication</li>
+                            </ul>
+                            <p><strong>Note:</strong> Stage 2 feature - not required for initial MVP.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item medium">
+                        <div class="assumption-header">
+                            <h4>Documentation Source Access</h4>
+                            <span class="priority-badge medium">Medium</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Forge Documentation:</strong></p>
+                            <ul>
+                                <li>Assumption: API or export capability exists for content ingestion</li>
+                                <li>Validation: Forge platform capabilities and access methods</li>
+                            </ul>
+                            <p><strong>Orange Sharing & SharePoint:</strong></p>
+                            <ul>
+                                <li>Orange Sharing: Internal knowledge sharing and documentation platform</li>
+                                <li>SharePoint: Document management and team collaboration</li>
+                                <li>Assumption: Content APIs available for both platforms</li>
+                                <li>Validation: API access methods and content structure</li>
+                            </ul>
+                            <p><strong>OMaaP Self-Service Portal:</strong></p>
+                            <ul>
+                                <li>Assumption: Documentation/help content can be scraped or accessed via API</li>
+                                <li>Validation: Portal architecture and content extraction method</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure & Security Assumptions -->
+                <div class="assumption-category">
+                    <h3>🔒 Infrastructure & Security Assumptions</h3>
+
+                    <div class="assumption-item critical">
+                        <div class="assumption-header">
+                            <h4>Network Access & Connectivity</h4>
+                            <span class="priority-badge critical">Critical</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> Development team can access ING network/VPN for integration work.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>VPN access provisioning process and timeline</li>
+                                <li>Firewall rules for accessing Elastic, Cassandra, ELK clusters</li>
+                                <li>Development environment availability (sandbox/non-prod)</li>
+                                <li>Source code repository access (Azure DevOps/GitHub)</li>
+                            </ul>
+                            <p><strong>Dependency:</strong> ING IT Security approval and network team provisioning (typical timeline: 2-4 weeks).</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item critical">
+                        <div class="assumption-header">
+                            <h4>RBAC Implementation</h4>
+                            <span class="priority-badge critical">Critical</span>
+                            <span class="status-badge confirmed">Confirmed</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Known:</strong> Harmonia application already has RBAC implemented (Italy cannot see Germany data).</p>
+                            <p><strong>Assumption:</strong> Similar RBAC model can be applied to AI assistant using Azure AD tenant claims.</p>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>How is tenant context currently determined in Harmonia?</li>
+                                <li>Can Azure AD claims/tokens be used to enforce tenant isolation in AI queries?</li>
+                                <li>What is the fallback if user belongs to multiple tenants?</li>
+                            </ul>
+                            <p><strong>⚠️ MVP Scope Note:</strong> The MVP will implement basic country-level tenant isolation as currently exists in Harmonia. More granular permission models (e.g., access based on role, seniority, or geographical territory) will need to be defined and validated with Sanjay during the production preparation phase, NOT during MVP delivery.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item high">
+                        <div class="assumption-header">
+                            <h4>Data Privacy & Compliance</h4>
+                            <span class="priority-badge high">High</span>
+                            <span class="status-badge confirmed">Requirements Confirmed</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Confirmed Requirements:</strong></p>
+                            <ul>
+                                <li>GDPR compliance mandatory</li>
+                                <li>PCI DSS for payment data handling</li>
+                                <li>Payment data must NOT be used to train LLMs (confirmed by Sanjay)</li>
+                                <li>PII masking for sensitive information</li>
+                            </ul>
+                            <p><strong>Validation Required:</strong></p>
+                            <ul>
+                                <li>Data classification policies for OMaaP platform</li>
+                                <li>Approved data processing locations (EU residency requirements?)</li>
+                                <li>Logging and audit requirements for AI interactions</li>
+                                <li>Data retention policies for chat history</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business & Organizational Assumptions -->
+                <div class="assumption-category">
+                    <h3>👥 Business & Organizational Assumptions</h3>
+
+                    <div class="assumption-item high">
+                        <div class="assumption-header">
+                            <h4>Support Team Availability</h4>
+                            <span class="priority-badge high">High</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> PSS support engineers (8-10 FTEs) can dedicate time for:</p>
+                            <ul>
+                                <li>Requirements gathering and use case validation</li>
+                                <li>Testing and feedback during development</li>
+                                <li>Knowledge base curation and content review</li>
+                                <li>User acceptance testing</li>
+                            </ul>
+                            <p><strong>Validation Required:</strong> Confirm availability of 2-3 engineers for 4-6 hours/week during development.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item medium">
+                        <div class="assumption-header">
+                            <h4>Baseline Metrics Availability</h4>
+                            <span class="priority-badge medium">Medium</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> ING can provide baseline metrics from incident tracking system:</p>
+                            <ul>
+                                <li>Current support ticket volumes (monthly/weekly breakdown)</li>
+                                <li>Average resolution times by query category</li>
+                                <li>Most frequent questions/issues</li>
+                                <li>Support engineer workload distribution</li>
+                            </ul>
+                            <p><strong>Purpose:</strong> Required to set realistic success criteria and measure improvement.</p>
+                        </div>
+                    </div>
+
+                    <div class="assumption-item medium">
+                        <div class="assumption-header">
+                            <h4>Budget Approval</h4>
+                            <span class="priority-badge medium">Medium</span>
+                            <span class="status-badge tbd">TBD</span>
+                        </div>
+                        <div class="assumption-content">
+                            <p><strong>Assumption:</strong> Budget is available for:</p>
+                            <ul>
+                                <li>Platform costs (LLM API usage - estimated €2K-5K/month post-launch)</li>
+                                <li>Development team (HCLTech engagement)</li>
+                                <li>Infrastructure hosting (if new environment needed)</li>
+                            </ul>
+                            <p><strong>Validation Required:</strong> Confirm budget allocation and approval authority during Discovery phase.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Critical Path Dependencies -->
+            <div class="dependencies-critical-path">
+                <h3>🚦 Critical Path Dependencies (Must Resolve Before Development)</h3>
+                <div class="critical-dependencies-grid">
+                    <div class="dependency-item">
+                        <div class="dependency-icon">🔑</div>
+                        <h4>1. Platform Selection</h4>
+                        <p><strong>Timeline:</strong> Week 2 of Discovery</p>
+                        <p>Choose between MS 365 Copilot or Google Gemini based on POC results and capability validation</p>
+                        <p><strong>Blocker:</strong> Cannot start MVP architecture until platform confirmed</p>
+                    </div>
+                    <div class="dependency-item">
+                        <div class="dependency-icon">🌐</div>
+                        <h4>2. Network & VPN Access</h4>
+                        <p><strong>Timeline:</strong> Week 1 of Discovery (start provisioning immediately)</p>
+                        <p>Development team needs access to ING network and non-prod data sources</p>
+                        <p><strong>Lead Time:</strong> 2-4 weeks typical (request during contracting phase)</p>
+                    </div>
+                    <div class="dependency-item">
+                        <div class="dependency-icon">🔌</div>
+                        <h4>3. Data Source API Access</h4>
+                        <p><strong>Timeline:</strong> Week 1-2 of Discovery</p>
+                        <p>Service accounts and read-only credentials for Elastic, Cassandra, ELK, Forge</p>
+                        <p><strong>Blocker:</strong> Cannot develop data connectors without API credentials</p>
+                    </div>
+                    <div class="dependency-item">
+                        <div class="dependency-icon">📋</div>
+                        <h4>4. Security & Compliance Approval</h4>
+                        <p><strong>Timeline:</strong> Week 2 of Discovery</p>
+                        <p>Architecture review by ING Security team, GDPR/PCI DSS assessment</p>
+                        <p><strong>Blocker:</strong> Cannot proceed to MVP without security sign-off</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation Plan -->
+            <div class="validation-plan">
+                <h3>✅ Discovery Phase Validation Plan</h3>
+                <p>All assumptions marked as <span class="status-badge tbd">TBD</span> will be systematically validated during the 2-week Discovery phase:</p>
+
+                <div class="validation-timeline">
+                    <div class="validation-week">
+                        <h4>Week 1: Requirements & Investigation</h4>
+                        <ul>
+                            <li><strong>Day 1-2:</strong> Scoping session → Validate business requirements and success criteria</li>
+                            <li><strong>Day 2-3:</strong> Technical deep-dive → Validate data source access and schemas</li>
+                            <li><strong>Day 3-4:</strong> Platform investigation → Confirm M365 license tier, plugins, and Gemini access</li>
+                            <li><strong>Day 4-5:</strong> Security review → Validate compliance requirements and RBAC model</li>
+                        </ul>
+                    </div>
+                    <div class="validation-week">
+                        <h4>Week 2: POC & Validation</h4>
+                        <ul>
+                            <li><strong>Day 6-8:</strong> Build POCs for both platforms (if both viable)</li>
+                            <li><strong>Day 9:</strong> Demonstrate POCs to stakeholders</li>
+                            <li><strong>Day 10:</strong> Platform selection and MVP planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Agent Architecture -->
+    <section class="section section-architecture" id="architecture">
+        <div class="container">
+            <h2 class="section-title">Multi-Agent System Architecture</h2>
+
+            <div class="architecture-intro">
+                <p>As specified in the requirements, the solution is built on a <strong>multi-agent system architecture</strong> where specialized agents collaborate to handle different aspects of OMaaP operations support. This modular approach enables scalability, maintainability, and continuous improvement.</p>
+            </div>
+
+            <div class="key-requirement-box">
+                <h3>🎯 Key Requirement</h3>
+                <p><strong>Multi-agent system solution</strong> for OMaaP operations to handle and support tenant queries related to OMaaP operations, architecture, and contribution model.</p>
+                <p class="agent-principle"><em>An agent relies on two things - <strong>Context</strong> and <strong>Data</strong> to make decisions at any given time.</em></p>
+            </div>
+
+            <!-- Architecture Diagram -->
+            <div class="architecture-diagram-section">
+                <h3>High-Level Architecture Diagram</h3>
+                <div class="diagram-container">
+                    <img src="./architecture.jpg" alt="OMaaP Multi-Agent Architecture" class="architecture-image"/>
+                    <p class="diagram-caption">Multi-agent system with Agent Discovery, A2A communication, and specialized agents for each data source</p>
+                </div>
+            </div>
+
+            <!-- Visual Multi-Agent Flow -->
+            <div class="multi-agent-flow-section">
+                <h3>Multi-Agent System Flow</h3>
+                <div class="flow-diagram">
+                    <!-- Row 1: User -->
+                    <div class="flow-row">
+                        <div class="flow-node user-node">
+                            <div class="node-icon">👤</div>
+                            <div class="node-label">User</div>
+                            <div class="node-description">Submits query</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <!-- Row 2: OMaaP Service Agent -->
+                    <div class="flow-row">
+                        <div class="flow-node service-agent-node">
+                            <div class="node-label">OMaaP Service Agent</div>
+                            <div class="node-description">Primary orchestrator</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <!-- Row 3: Decision Point -->
+                    <div class="flow-row">
+                        <div class="flow-node decision-node">
+                            <div class="node-icon">❓</div>
+                            <div class="node-label">Do I have access & info?</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-split">
+                        <div class="flow-split-left">
+                            <div class="flow-arrow-label">Yes</div>
+                            <div class="flow-arrow-side">↓</div>
+                        </div>
+                        <div class="flow-split-right">
+                            <div class="flow-arrow-label">No</div>
+                            <div class="flow-arrow-side">↓</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Direct Response or Agent Discovery -->
+                    <div class="flow-row flow-row-split">
+                        <div class="flow-node-small direct-response-node">
+                            <div class="node-label">Direct Response</div>
+                        </div>
+                        <div class="flow-node discovery-node">
+                            <div class="node-icon">🔍</div>
+                            <div class="node-label">Agent Discovery</div>
+                            <div class="node-description">Find appropriate agent(s)</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <!-- Row 5: Multi-Agents with A2A -->
+                    <div class="flow-row">
+                        <div class="multi-agents-container">
+                            <div class="a2a-badge">A2A Communication</div>
+                            <div class="agents-row">
+                                <div class="specialist-agent forge-agent">
+                                    <div class="agent-icon-small">📚</div>
+                                    <div class="agent-name">Forge Agent</div>
+                                    <div class="agent-desc">Documentation</div>
+                                </div>
+                                <div class="specialist-agent inquiry-agent">
+                                    <div class="agent-icon-small">💳</div>
+                                    <div class="agent-name">Inquiry Agent</div>
+                                    <div class="agent-desc">Payment Data</div>
+                                </div>
+                                <div class="specialist-agent orange-agent">
+                                    <div class="agent-icon-small">🍊</div>
+                                    <div class="agent-name">Orange Agent</div>
+                                    <div class="agent-desc">Knowledge Base</div>
+                                </div>
+                                <div class="specialist-agent sharepoint-agent">
+                                    <div class="agent-icon-small">📄</div>
+                                    <div class="agent-name">SharePoint Agent</div>
+                                    <div class="agent-desc">Documents</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <!-- Row 6: MCP Layer -->
+                    <div class="flow-row">
+                        <div class="flow-node mcp-node">
+                            <div class="node-icon">🔌</div>
+                            <div class="node-label">MCP (Model Context Protocol)</div>
+                            <div class="node-description">Standardized data access layer</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <!-- Row 7: Data Sources -->
+                    <div class="flow-row">
+                        <div class="data-sources-container">
+                            <div class="data-source-badge">Inquiry API</div>
+                            <div class="data-source-badge">Forge</div>
+                            <div class="data-source-badge">Orange Sharing</div>
+                            <div class="data-source-badge">SharePoint</div>
+                            <div class="data-source-badge">Ad Hoc Sources</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <!-- Row 8: Elastic Search -->
+                    <div class="flow-row">
+                        <div class="flow-node elastic-node">
+                            <div class="node-icon">🔍</div>
+                            <div class="node-label">Elastic Search</div>
+                            <div class="node-description">Backend indexing & search</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-up">↑ Response Data ↑</div>
+
+                    <!-- Row 9: Response Formation -->
+                    <div class="flow-row">
+                        <div class="flow-node response-node">
+                            <div class="node-icon">📝</div>
+                            <div class="node-label">Form the Response</div>
+                            <div class="node-description">Aggregate & synthesize answer</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-up">↑</div>
+
+                    <!-- Row 10: Back to User -->
+                    <div class="flow-row">
+                        <div class="flow-node user-response-node">
+                            <div class="node-icon">✅</div>
+                            <div class="node-label">User Receives Answer</div>
+                            <div class="node-description">Via Portal, Teams, or Email</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture Components -->
+            <div class="architecture-components">
+                <h3>Architecture Components</h3>
+
+                <div class="component-section">
+                    <div class="component-card primary">
+                        <div class="component-header">
+                            <span class="component-icon">🤖</span>
+                            <h4>OMaaP Service Agent</h4>
+                            <span class="role-badge">Entry Point</span>
+                        </div>
+                        <div class="component-content">
+                            <p><strong>Role:</strong> Primary interface between users and the multi-agent system</p>
+                            <ul>
+                                <li>Receives natural language queries from users</li>
+                                <li>Determines if it has necessary access and information</li>
+                                <li>Routes queries to appropriate specialized agents via Agent Discovery</li>
+                                <li>Orchestrates agent-to-agent (A2A) communication</li>
+                                <li>Aggregates responses and forms coherent answers</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">🔍</span>
+                            <h4>Agent Discovery</h4>
+                            <span class="role-badge">Orchestration</span>
+                        </div>
+                        <div class="component-content">
+                            <p><strong>Role:</strong> Identifies and routes to appropriate specialized agents</p>
+                            <ul>
+                                <li>Maintains registry of available agents and their capabilities</li>
+                                <li>Analyzes query requirements and matches to agent expertise</li>
+                                <li>Handles dynamic agent registration and lifecycle</li>
+                                <li>Enables intelligent routing based on query type and data requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specialized-agents-section">
+                    <h4>Specialized Agents (Multi-Agent Ecosystem)</h4>
+                    <div class="agents-grid">
+                        <div class="agent-card">
+                            <div class="agent-icon">📚</div>
+                            <h5>Forge Agent</h5>
+                            <p>Accesses Forge documentation for OMaaP architecture and technical information</p>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-icon">💳</div>
+                            <h5>Inquiry Agent</h5>
+                            <p>Connects to Inquiry API for payment transaction details and processing information</p>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-icon">🍊</div>
+                            <h5>Orange Sharing Agent</h5>
+                            <p>Retrieves knowledge articles and documentation from Orange Sharing platform</p>
+                        </div>
+                        <div class="agent-card">
+                            <div class="agent-icon">📄</div>
+                            <h5>SharePoint Agent</h5>
+                            <p>Accesses SharePoint documents, policies, and team collaboration content</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-section">
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">🔄</span>
+                            <h4>A2A (Agent-to-Agent) Communication</h4>
+                            <span class="role-badge">Integration</span>
+                        </div>
+                        <div class="component-content">
+                            <p><strong>Role:</strong> Enables collaboration between agents</p>
+                            <ul>
+                                <li>Standardized communication protocol between agents</li>
+                                <li>Enables complex queries requiring multiple data sources</li>
+                                <li>Manages context sharing and response aggregation</li>
+                                <li>Ensures authenticated and authorized inter-agent communication</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">🔌</span>
+                            <h4>MCP (Model Context Protocol)</h4>
+                            <span class="role-badge">Data Integration</span>
+                        </div>
+                        <div class="component-content">
+                            <p><strong>Role:</strong> Standardized protocol for connecting LLMs to data sources</p>
+                            <ul>
+                                <li>Connects agents to Inquiry API, Forge, Orange Sharing, SharePoint</li>
+                                <li>Provides consistent interface for data retrieval</li>
+                                <li>Handles authentication and authorization per data source</li>
+                                <li>Supports ad hoc data sources (Excel, PDF files)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="component-header">
+                            <span class="component-icon">🔍</span>
+                            <h4>Elastic Search</h4>
+                            <span class="role-badge">Backend</span>
+                        </div>
+                        <div class="component-content">
+                            <p><strong>Role:</strong> Backend search and indexing for multi-source data</p>
+                            <ul>
+                                <li>Indexes content from all data sources for fast retrieval</li>
+                                <li>Enables semantic search across documentation and knowledge bases</li>
+                                <li>Supports RAG (Retrieval Augmented Generation) workflows</li>
+                                <li>Provides unified search interface for all agents</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Sources -->
+            <div class="data-sources-section">
+                <h3>Data Sources</h3>
+                <p>Agents must have access to the following data sources:</p>
+                <div class="data-sources-grid">
+                    <div class="data-source-card">
+                        <div class="source-icon">🔌</div>
+                        <h4>Inquiry API</h4>
+                        <p>Payment transaction details and processing information</p>
+                    </div>
+                    <div class="data-source-card">
+                        <div class="source-icon">📚</div>
+                        <h4>Forge</h4>
+                        <p>OMaaP platform documentation and architecture guides</p>
+                    </div>
+                    <div class="data-source-card">
+                        <div class="source-icon">🍊</div>
+                        <h4>Orange Sharing</h4>
+                        <p>Internal knowledge sharing and documentation platform</p>
+                    </div>
+                    <div class="data-source-card">
+                        <div class="source-icon">📄</div>
+                        <h4>SharePoint</h4>
+                        <p>Document management and team collaboration</p>
+                    </div>
+                    <div class="data-source-card">
+                        <div class="source-icon">📊</div>
+                        <h4>Ad Hoc Sources</h4>
+                        <p>Excel files, PDFs, and other document formats</p>
+                    </div>
+                    <div class="data-source-card">
+                        <div class="source-icon">💻</div>
+                        <h4>OMaaP Code Repositories</h4>
+                        <p>Limited read-only access for code contribution guidance</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Requirements -->
+            <div class="security-requirements-section">
+                <h3>Security & Authentication Requirements</h3>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <div class="security-icon">🔐</div>
+                        <h4>Authenticated Access</h4>
+                        <p>Every interaction by agent to system is authenticated and authorized - <strong>no implicit trust</strong></p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🆔</div>
+                        <h4>Unique Agent Identity</h4>
+                        <p>Each agent must have a unique identity and works under assigned NPA (Non-Personal Account)</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">📊</div>
+                        <h4>Usage Monitoring</h4>
+                        <p>Monitor and control usage limits for cost management and abuse prevention</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">♻️</div>
+                        <h4>Agent Lifecycle Management</h4>
+                        <p>Means to manage agent lifecycle including creation, updates, and decommissioning</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🛡️</div>
+                        <h4>ISO/IEC 25010 Standards</h4>
+                        <p>Compliance with ISO/IEC 25010 standards for AI governance and quality</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">✓</div>
+                        <h4>Continuous Verification</h4>
+                        <p>Continuous verification of agent actions and responses for security and accuracy</p>
+                        <p class="future-phase-note"><strong>⚠️ Future Phase:</strong> Full continuous verification and explainability features are production-phase requirements and are NOT included in the MVP service credits proposal. MVP will include basic logging and monitoring.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Channels -->
+            <div class="communication-channels-section">
+                <h3>Communication Channels</h3>
+                <p>Agents must be able to communicate via multiple channels:</p>
+                <div class="channels-grid">
+                    <div class="channel-card">
+                        <div class="channel-icon">🌐</div>
+                        <h4>OMaaP Support Portal</h4>
+                        <p>Primary web-based interface for tenant queries</p>
+                    </div>
+                    <div class="channel-card">
+                        <div class="channel-icon">💬</div>
+                        <h4>Teams Channel</h4>
+                        <p>Microsoft Teams integration for real-time support</p>
+                    </div>
+                    <div class="channel-card">
+                        <div class="channel-icon">📧</div>
+                        <h4>Email Automation</h4>
+                        <p>Automated email responses for asynchronous queries</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology Platform Note -->
+            <div class="platform-note-section">
+                <h3>Technology Platform Selection</h3>
+                <p>The multi-agent architecture can be implemented on either:</p>
+                <div class="platform-options">
+                    <div class="platform-option">
+                        <h4>🔵 Microsoft 365 Copilot</h4>
+                        <ul>
+                            <li>Already deployed enterprise-wide at ING</li>
+                            <li>Requires Agent Builder capabilities (TBD)</li>
+                            <li>Requires approved plugins for Inquiry API, Orange Sharing, SharePoint, Forge</li>
+                        </ul>
+                    </div>
+                    <div class="platform-option recommended">
+                        <h4>🔷 Google Gemini (Vertex AI) <span class="recommended-badge">Recommended</span></h4>
+                        <ul>
+                            <li>Already approved and operational on ING's Vista platform</li>
+                            <li>Native multi-agent capabilities via Agent Builder</li>
+                            <li>Flexible integration with various data sources via MCP</li>
+                            <li>Advanced function calling and tool use</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="platform-decision"><strong>Decision Point:</strong> Platform selection will be made during the 2-week Discovery phase based on POC results and capability validation.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Discovery Phase -->
+    <section class="section section-light" id="discovery">
+        <div class="container">
+            <h2 class="section-title">Phase 1: Discovery & Assessment (2 Weeks)</h2>
+
+            <div class="phase-overview">
+                <p class="phase-intro">The Discovery phase is a <strong>structured investigation</strong> to understand OMaaP's technical landscape, validate feasibility, and establish the architectural foundation for MVP development. This is an <strong>investment from HCLTech</strong> to derisk the project and ensure alignment before full commitment.</p>
+            </div>
+
+            <div class="discovery-grid">
+                <div class="discovery-card">
+                    <div class="card-header">
+                        <span class="card-icon-large">🔍</span>
+                        <h3>Week 1: Requirements & Technical Investigation</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-section">
+                            <h4>Business Requirements Gathering</h4>
+                            <ul>
+                                <li>Interview support engineers to understand query patterns and pain points</li>
+                                <li>Analyze historical support incidents (classify by type, frequency, complexity)</li>
+                                <li>Review Teams support channel for recurring questions</li>
+                                <li>Document user personas (Tenants, PSS Engineers, General ING Engineers)</li>
+                                <li>Establish baseline metrics (ticket volume, response times, resolution rates)</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-section">
+                            <h4>Technical Architecture Assessment</h4>
+                            <ul>
+                                <li><strong>Harmonia Application:</strong> UI/UX review, authentication flow, integration points for chat interface</li>
+                                <li><strong>Elastic Cluster:</strong> Schema analysis, query patterns, data volume, access controls</li>
+                                <li><strong>Cassandra:</strong> Data model review, payment information structure, query performance</li>
+                                <li><strong>ELK Logging:</strong> Log structure, retention policies, searchability</li>
+                                <li><strong>Knowledge Sources:</strong> Forge, Orange Sharing, SharePoint content audit and accessibility</li>
+                                <li><strong>OMaaP Self-Service Portal:</strong> API documentation, tenant configuration data</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-section">
+                            <h4>Platform Feasibility Analysis</h4>
+                            <ul>
+                                <li><strong>MS 365 Copilot:</strong> Test connectivity to ING M365 Graph, evaluate plugin constraints</li>
+                                <li><strong>Gemini/Vertex AI:</strong> Test Elastic integration via MCP/custom connectors, RAG performance</li>
+                                <li>Security sandbox testing for both platforms</li>
+                                <li>Latency and response time benchmarking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discovery-card">
+                    <div class="card-header">
+                        <span class="card-icon-large">⚙️</span>
+                        <h3>Week 2: POC Development & Platform Selection</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-section">
+                            <h4>Proof-of-Concept Build</h4>
+                            <ul>
+                                <li>Implement minimal viable agent with MS 365 Copilot (if feasible)</li>
+                                <li>Implement minimal viable agent with Gemini + Vertex AI</li>
+                                <li>Test with 20-30 representative queries from support history</li>
+                                <li>Evaluate accuracy, context retention, multi-turn conversations</li>
+                                <li>Test tenant data isolation and RBAC controls</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-section">
+                            <h4>Security & Compliance Validation</h4>
+                            <ul>
+                                <li>GDPR compliance check (data residency, processing transparency)</li>
+                                <li>PCI DSS requirements for payment data handling</li>
+                                <li>ING data classification and handling policies</li>
+                                <li>Tenant isolation verification (Italy cannot see Germany data)</li>
+                                <li>Data masking and PII protection strategies</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-section">
+                            <h4>Architectural Design Document (ADD)</h4>
+                            <ul>
+                                <li>Platform recommendation (MS 365 vs. Gemini) with justification</li>
+                                <li>High-level architecture diagram (data flow, integration points)</li>
+                                <li>Technology stack selection (APIs, frameworks, hosting)</li>
+                                <li>Security architecture (authentication, authorization, encryption)</li>
+                                <li>Scalability and performance considerations</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-section">
+                            <h4>MVP Implementation Plan</h4>
+                            <ul>
+                                <li>Detailed sprint plan for MVP Stages 1-3</li>
+                                <li>User story mapping and backlog</li>
+                                <li>Risk register and mitigation strategies</li>
+                                <li>Resource allocation and team structure</li>
+                                <li>Timeline and milestone definitions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deliverables-section">
+                <h3>Discovery Phase Deliverables</h3>
+                <div class="deliverables-grid">
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">📄</div>
+                        <h4>Requirements Document</h4>
+                        <p>User personas, use cases, functional & non-functional requirements</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🏗️</div>
+                        <h4>Architectural Design Document</h4>
+                        <p>Platform selection, architecture diagrams, technology stack</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🔬</div>
+                        <h4>POC Demo & Evaluation Report</h4>
+                        <p>Working prototype with performance metrics and recommendations</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🔒</div>
+                        <h4>Security & Compliance Assessment</h4>
+                        <p>GDPR, PCI DSS, data handling policies validation</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">📊</div>
+                        <h4>Baseline Metrics Report</h4>
+                        <p>Current state analysis with quantifiable KPIs</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🗺️</div>
+                        <h4>MVP Roadmap & Implementation Plan</h4>
+                        <p>Detailed sprint plan, timeline, resource allocation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-visual">
+                <h3>Discovery Timeline</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Day 1-3</div>
+                        <div class="timeline-content">
+                            <h4>Stakeholder Interviews</h4>
+                            <p>Support engineers, tenants, product owners</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Day 4-5</div>
+                        <div class="timeline-content">
+                            <h4>Data Source Analysis</h4>
+                            <p>Inquiry API, Forge, Orange Sharing, SharePoint, ad hoc sources</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Day 6-8</div>
+                        <div class="timeline-content">
+                            <h4>Platform POC Build</h4>
+                            <p>MS 365 & Gemini prototypes</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Day 9</div>
+                        <div class="timeline-content">
+                            <h4>POC Testing & Evaluation</h4>
+                            <p>Performance, accuracy, security validation</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Day 10</div>
+                        <div class="timeline-content">
+                            <h4>Deliverables & Presentation</h4>
+                            <p>Architecture review, platform recommendation, MVP plan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MVP Roadmap -->
+    <section class="section section-roadmap" id="mvp-roadmap">
+        <div class="container">
+            <h2 class="section-title">Phase 2: MVP Development - Staged Rollout</h2>
+
+            <div class="roadmap-intro">
+                <p>Following Discovery, the MVP will be delivered in <strong>three incremental stages</strong>, each adding capability while managing risk and ensuring early value delivery. Each stage includes development, testing, and user feedback incorporation.</p>
+            </div>
+
+            <div class="stage-container">
+                <div class="stage-card stage-1">
+                    <div class="stage-header">
+                        <div class="stage-badge">Stage 1</div>
+                        <h3>Foundation - Payment Data Assistant</h3>
+                        <div class="stage-duration">Duration: 3-4 weeks | Sprint 1-2</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-section">
+                            <h4>🎯 Objective</h4>
+                            <p>Deploy conversational interface for <strong>Tenant users</strong> to query payment information from Elastic and Cassandra, replicating current Harmonia dashboard capabilities via natural language.</p>
+                        </div>
+                        <div class="stage-section">
+                            <h4>🔧 Capabilities</h4>
+                            <ul>
+                                <li>Chat interface integrated into Harmonia application (new menu item)</li>
+                                <li>Natural language queries on payment status, volumes, errors</li>
+                                <li>Context-aware responses with payment data from Elastic/Cassandra</li>
+                                <li>Tenant-specific data isolation (RBAC enforced)</li>
+                                <li>Basic conversation history and context retention</li>
+                            </ul>
+                        </div>
+                        <div class="stage-section">
+                            <h4>📊 Data Sources</h4>
+                            <div class="data-sources">
+                                <span class="data-badge">Elastic (Payment Data)</span>
+                                <span class="data-badge">Cassandra (Payment Info)</span>
+                            </div>
+                        </div>
+                        <div class="stage-section">
+                            <h4>✅ Success Criteria</h4>
+                            <ul class="success-list">
+                                <li>90%+ accuracy on payment status queries</li>
+                                <li><2 seconds AI response time for auto-resolvable queries</li>
+                                <li>50-60% deflection rate (queries fully resolved without human escalation)</li>
+                                <li>Tenant data isolation verified (no cross-tenant leakage)</li>
+                                <li>50% of tenants actively using in pilot phase</li>
+                            </ul>
+                        </div>
+                        <div class="stage-section">
+                            <h4>📦 Deliverables</h4>
+                            <ul class="deliverables-list">
+                                <li>Chat UI component in Harmonia</li>
+                                <li>AI agent with Elastic/Cassandra integration</li>
+                                <li>RBAC & security implementation</li>
+                                <li>User documentation & training materials</li>
+                                <li>Monitoring dashboard (query volume, accuracy, response times)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-card stage-2">
+                    <div class="stage-header">
+                        <div class="stage-badge">Stage 2</div>
+                        <h3>Expansion - Knowledge Base Integration</h3>
+                        <div class="stage-duration">Duration: 4-5 weeks | Sprint 3-4</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-section">
+                            <h4>🎯 Objective</h4>
+                            <p>Extend assistant to answer <strong>technical and functional questions</strong> about OMaaP platform, onboarding process, and troubleshooting by integrating documentation sources.</p>
+                        </div>
+                        <div class="stage-section">
+                            <h4>🔧 Capabilities</h4>
+                            <ul>
+                                <li>Multi-source RAG (Retrieval Augmented Generation) implementation</li>
+                                <li>Queries on OMaaP features, configuration, onboarding steps</li>
+                                <li>Troubleshooting guidance from logs (ELK integration)</li>
+                                <li>Support for PSS Engineers persona (broader access scope)</li>
+                                <li>Improved context handling across documentation sources</li>
+                                <li>Citation and source attribution for answers</li>
+                            </ul>
+                        </div>
+                        <div class="stage-section">
+                            <h4>📊 Data Sources</h4>
+                            <div class="data-sources">
+                                <span class="data-badge">Elastic</span>
+                                <span class="data-badge">Cassandra</span>
+                                <span class="data-badge">ELK (Logs)</span>
+                                <span class="data-badge">Forge</span>
+                                <span class="data-badge">Orange Sharing</span>
+                                <span class="data-badge">SharePoint</span>
+                                <span class="data-badge">OMaaP Self-Service Portal</span>
+                            </div>
+                        </div>
+                        <div class="stage-section">
+                            <h4>✅ Success Criteria</h4>
+                            <ul class="success-list">
+                                <li>60% deflection rate on technical support queries</li>
+                                <li>85%+ accuracy on documentation-based questions</li>
+                                <li>Proper source citation in 100% of responses</li>
+                                <li>Support engineers report 40% workload reduction</li>
+                            </ul>
+                        </div>
+                        <div class="stage-section">
+                            <h4>📦 Deliverables</h4>
+                            <ul class="deliverables-list">
+                                <li>RAG pipeline with vector embeddings for all knowledge sources</li>
+                                <li>Enhanced agent with multi-source grounding</li>
+                                <li>Log analysis capability (ELK integration)</li>
+                                <li>PSS Engineer persona and permissions</li>
+                                <li>Feedback mechanism (thumbs up/down, escalation)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-card stage-3">
+                    <div class="stage-header">
+                        <div class="stage-badge">Stage 3</div>
+                        <h3>Advanced - Developer Assistance & Extensions</h3>
+                        <div class="stage-duration">Duration: 4-5 weeks | Sprint 5-6</div>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-section">
+                            <h4>🎯 Objective</h4>
+                            <p>Enable <strong>General ING Engineers</strong> to get assistance on OMaaP extension development, SDK usage, and Azure DevOps workflows for custom tenant implementations.</p>
+                        </div>
+                        <div class="stage-section">
+                            <h4>🔧 Capabilities</h4>
+                            <ul>
+                                <li>Code generation and explanation for OMaaP extensions</li>
+                                <li>SDK documentation and usage examples</li>
+                                <li>Azure DevOps workflow guidance (CI/CD, deployment)</li>
+                                <li>Best practices and architectural patterns</li>
+                                <li>Integration testing recommendations</li>
+                                <li>General ING Engineer persona with appropriate access controls</li>
+                            </ul>
+                        </div>
+                        <div class="stage-section">
+                            <h4>📊 Data Sources</h4>
+                            <div class="data-sources">
+                                <span class="data-badge">All Stage 1-2 sources</span>
+                                <span class="data-badge">Azure DevOps</span>
+                                <span class="data-badge">SDK Documentation</span>
+                                <span class="data-badge">Code Repositories</span>
+                                <span class="data-badge">Architecture Patterns</span>
+                            </div>
+                        </div>
+                        <div class="stage-section">
+                            <h4>✅ Success Criteria</h4>
+                            <ul class="success-list">
+                                <li>70% of developer questions resolved without escalation</li>
+                                <li>Onboarding time for new countries reduced by 30%</li>
+                                <li>High satisfaction score (4.5/5.0) from developer users</li>
+                                <li>Demonstrable reduction in extension development support load</li>
+                            </ul>
+                        </div>
+                        <div class="stage-section">
+                            <h4>📦 Deliverables</h4>
+                            <ul class="deliverables-list">
+                                <li>Code-aware agent with SDK and DevOps integration</li>
+                                <li>Developer persona and permissions</li>
+                                <li>Azure DevOps connector for workflow queries</li>
+                                <li>Enhanced documentation with code examples</li>
+                                <li>Comprehensive user guide for all personas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mvp-delivery-note">
+                <h3>MVP Delivery Under Service Credits</h3>
+                <p><strong>Important:</strong> The MVP development phases outlined above will be delivered under <strong>HCLTech service credits</strong>. This includes:</p>
+                <ul>
+                    <li>Development and testing in <strong>non-production environments</strong> (DEV, TEST, UAT)</li>
+                    <li>Alpha and Beta testing phases with limited pilot users</li>
+                    <li>Validation of core capabilities and success criteria</li>
+                    <li>Delivery of working MVP ready for production readiness assessment</li>
+                </ul>
+            </div>
+
+            <div class="production-rollout-section">
+                <h3>Production Rollout - Requires Separate Assessment</h3>
+                <p class="assessment-note"><strong>Production deployment is NOT included in MVP delivery and requires separate evaluation</strong> covering:</p>
+
+                <div class="rollout-requirements">
+                    <div class="requirement-card">
+                        <div class="req-icon">🔍</div>
+                        <h4>Observability & Monitoring</h4>
+                        <ul>
+                            <li>Application Performance Monitoring (APM) integration</li>
+                            <li>Real-time alerting and incident management</li>
+                            <li>Log aggregation and analysis infrastructure</li>
+                            <li>User behavior analytics and session tracking</li>
+                            <li>Cost monitoring and budget alerting</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">🤝</div>
+                        <h4>A2A Communication Monitoring</h4>
+                        <ul>
+                            <li>Agent-to-Agent communication tracing and debugging</li>
+                            <li>Service mesh observability (if applicable)</li>
+                            <li>Inter-agent latency and performance metrics</li>
+                            <li>Agent discovery health checks and failover monitoring</li>
+                            <li>MCP protocol compliance validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">🚢</div>
+                        <h4>Progressive Delivery & Rollout</h4>
+                        <ul>
+                            <li>Blue-green or canary deployment strategy</li>
+                            <li>Feature flags for gradual capability enablement</li>
+                            <li>Phased tenant onboarding (country by country)</li>
+                            <li>Rollback procedures and disaster recovery plans</li>
+                            <li>Load testing at production scale (all 6-7 countries)</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">🌍</div>
+                        <h4>Environment & Data Readiness</h4>
+                        <ul>
+                            <li>Production environment provisioning (compute, storage, networking)</li>
+                            <li>Production data source connections and access controls</li>
+                            <li>Data migration and synchronization strategies</li>
+                            <li>Backup and recovery infrastructure</li>
+                            <li>Disaster recovery (DR) environment setup</li>
+                            <li>Production security hardening and penetration testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">🔒</div>
+                        <h4>Security & Compliance</h4>
+                        <ul>
+                            <li>Production security audit and sign-off</li>
+                            <li>ISO/IEC 25010 compliance validation</li>
+                            <li>GDPR and PCI DSS certification for production data</li>
+                            <li>Penetration testing and vulnerability assessment</li>
+                            <li>Agent lifecycle management in production</li>
+                            <li>NPA (Non-Personal Account) setup and key management</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">⚡</div>
+                        <h4>Scalability & Performance</h4>
+                        <ul>
+                            <li>Load testing with projected 5x growth (by July 2026)</li>
+                            <li>Auto-scaling policies and resource optimization</li>
+                            <li>Database connection pooling and query optimization</li>
+                            <li>CDN setup for static assets</li>
+                            <li>Response time SLAs and performance budgets</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">👨‍💼</div>
+                        <h4>Support & Operational Readiness</h4>
+                        <ul>
+                            <li>24/7 on-call support rotation and escalation procedures</li>
+                            <li>Runbooks and troubleshooting documentation</li>
+                            <li>Incident management and post-mortem processes</li>
+                            <li>User training and change management</li>
+                            <li>Support team handoff and knowledge transfer</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="req-icon">📊</div>
+                        <h4>Business Continuity</h4>
+                        <ul>
+                            <li>Service Level Agreements (SLAs) definition</li>
+                            <li>Business continuity and disaster recovery plans</li>
+                            <li>Data retention and archival policies</li>
+                            <li>Cost model and budget approval for production</li>
+                            <li>Long-term maintenance and enhancement roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="production-timeline">
+                    <h4>Estimated Production Readiness Timeline</h4>
+                    <p>Following successful MVP delivery, production rollout preparation requires an additional <strong>6-8 weeks</strong> minimum to address the above requirements. This timeline includes:</p>
+                    <ul>
+                        <li><strong>Weeks 1-2:</strong> Environment setup, security hardening, observability infrastructure</li>
+                        <li><strong>Weeks 3-4:</strong> Load testing, performance tuning, monitoring dashboard setup</li>
+                        <li><strong>Weeks 5-6:</strong> Production deployment dry-runs, rollback testing, DR validation</li>
+                        <li><strong>Weeks 7-8:</strong> Phased rollout (1-2 countries at a time), support team training</li>
+                    </ul>
+                    <p class="critical-note"><strong>Critical:</strong> Production rollout scope, effort, and commercial terms must be agreed separately after MVP completion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dependencies & Prerequisites -->
+    <section class="section section-light" id="dependencies">
+        <div class="container">
+            <h2 class="section-title">Dependencies & Prerequisites</h2>
+
+            <div class="dependencies-grid">
+                <div class="dependency-category">
+                    <h3>ING Requirements</h3>
+                    <div class="dependency-list">
+                        <div class="dependency-item critical">
+                            <div class="dependency-header">
+                                <span class="priority-badge critical">Critical</span>
+                                <h4>Data Source Access</h4>
+                            </div>
+                            <ul>
+                                <li>Read-only access to Elastic cluster (payment data)</li>
+                                <li>Read-only access to Cassandra database</li>
+                                <li>Access to ELK logging cluster</li>
+                                <li>API access to Forge, Orange Sharing, SharePoint</li>
+                                <li>OMaaP Self-Service Portal API documentation</li>
+                            </ul>
+                            <div class="dependency-status">Required by: End of Discovery Week 1</div>
+                        </div>
+
+                        <div class="dependency-item critical">
+                            <div class="dependency-header">
+                                <span class="priority-badge critical">Critical</span>
+                                <h4>Platform Approval</h4>
+                            </div>
+                            <ul>
+                                <li>Confirmation of Gemini/Vertex AI usage approval (specific version)</li>
+                                <li>Budget allocation for Gemini API usage (if selected)</li>
+                                <li>Alternative: Confirmation of M365 Copilot Enterprise license and Elastic integration path</li>
+                            </ul>
+                            <div class="dependency-status">Required by: Discovery Week 1</div>
+                        </div>
+
+                        <div class="dependency-item high">
+                            <div class="dependency-header">
+                                <span class="priority-badge high">High</span>
+                                <h4>Security & Compliance</h4>
+                            </div>
+                            <ul>
+                                <li>ING data classification policies document</li>
+                                <li>GDPR compliance requirements specific to OMaaP</li>
+                                <li>PCI DSS requirements for payment data handling</li>
+                                <li>Security review and approval process for AI tools</li>
+                                <li>Penetration testing and vulnerability scanning requirements</li>
+                            </ul>
+                            <div class="dependency-status">Required by: Discovery Week 2</div>
+                        </div>
+
+                        <div class="dependency-item medium">
+                            <div class="dependency-header">
+                                <span class="priority-badge medium">Medium</span>
+                                <h4>Historical Data & Baseline</h4>
+                            </div>
+                            <ul>
+                                <li>Incident tracking data export (support incidents, 6-12 months)</li>
+                                <li>Teams support channel history export</li>
+                                <li>List of most frequent support questions (categorized)</li>
+                                <li>Current response time metrics</li>
+                                <li>Support engineer capacity and workload data</li>
+                            </ul>
+                            <div class="dependency-status">Required by: Discovery Week 1</div>
+                        </div>
+
+                        <div class="dependency-item medium">
+                            <div class="dependency-header">
+                                <span class="priority-badge medium">Medium</span>
+                                <h4>Development Environment</h4>
+                            </div>
+                            <ul>
+                                <li>Non-production Harmonia instance for integration testing</li>
+                                <li>ING Azure/GCP sandbox environment access</li>
+                                <li>CI/CD pipeline access (Azure DevOps or equivalent)</li>
+                                <li>VPN/network access to ING internal systems</li>
+                            </ul>
+                            <div class="dependency-status">Required by: MVP Sprint 1 start</div>
+                        </div>
+
+                        <div class="dependency-item low">
+                            <div class="dependency-header">
+                                <span class="priority-badge low">Low</span>
+                                <h4>Stakeholder Availability</h4>
+                            </div>
+                            <ul>
+                                <li>Weekly sync with Sanjay (Product Owner)</li>
+                                <li>Bi-weekly demos with Onboarding Squad</li>
+                                <li>Support engineer interviews (3-4 hours total in Discovery)</li>
+                                <li>Tenant user feedback sessions (post-beta deployment)</li>
+                            </ul>
+                            <div class="dependency-status">Ongoing throughout project</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dependency-category">
+                    <h3>HCLTech Deliverables</h3>
+                    <div class="dependency-list">
+                        <div class="dependency-item high">
+                            <div class="dependency-header">
+                                <span class="priority-badge high">High</span>
+                                <h4>Team Allocation</h4>
+                            </div>
+                            <ul>
+                                <li><strong>Thomas:</strong> Engagement Lead and Lead AI Architect (50% allocation)</li>
+                                <li><strong>Chitra:</strong> Technical Lead (50% allocation, Bangalore-based)</li>
+                                <li><strong>Alpha Coders (2 FTE):</strong> IIT-trained developers for implementation</li>
+                                <li><strong>Sudhakar:</strong> Advisor (10% allocation)</li>
+                                <li><strong>Ameet:</strong> PSS Delivery Support (25% allocation)</li>
+                            </ul>
+                            <div class="dependency-status">Required by: Discovery start</div>
+                        </div>
+
+                        <div class="dependency-item high">
+                            <div class="dependency-header">
+                                <span class="priority-badge high">High</span>
+                                <h4>Technical Infrastructure</h4>
+                            </div>
+                            <ul>
+                                <li>Development workstations and tooling</li>
+                                <li>POC environment (GCP/Azure sandbox)</li>
+                                <li>Version control and collaboration tools (GitHub, Jira)</li>
+                                <li>Monitoring and logging infrastructure</li>
+                            </ul>
+                            <div class="dependency-status">Available at project start</div>
+                        </div>
+
+                        <div class="dependency-item medium">
+                            <div class="dependency-header">
+                                <span class="priority-badge medium">Medium</span>
+                                <h4>Knowledge Transfer</h4>
+                            </div>
+                            <ul>
+                                <li>OMaaP domain knowledge ramp-up (1-2 weeks)</li>
+                                <li>ING security and compliance training</li>
+                                <li>Harmonia application architecture walkthrough</li>
+                                <li>Access to existing OMaaP documentation and codebases</li>
+                            </ul>
+                            <div class="dependency-status">During Discovery phase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prerequisite-checklist">
+                <h3>Pre-Project Checklist</h3>
+                <p>Before commencing Discovery, the following must be confirmed:</p>
+                <div class="checklist-grid">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check2" disabled>
+                        <label for="check2">✓ HCLTech team members identified and allocated</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check3" disabled>
+                        <label for="check3">✓ ING stakeholders confirmed (Sanjay as primary contact)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check4" disabled>
+                        <label for="check4">✓ Data source access requests submitted</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check5" disabled>
+                        <label for="check5">✓ ING VPN/network access provisioned</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check6" disabled>
+                        <label for="check6">✓ Communication channels established (Teams, email)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check7" disabled>
+                        <label for="check7">✓ Discovery kick-off meeting scheduled</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check8" disabled>
+                        <label for="check8">✓ Success criteria baseline data collection plan agreed</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges & Mitigation -->
+    <section class="section section-challenges" id="challenges">
+        <div class="container">
+            <h2 class="section-title">Possible Challenges & Mitigation Strategies</h2>
+
+            <div class="challenges-grid">
+                <div class="challenge-card risk-high">
+                    <div class="challenge-header">
+                        <span class="risk-badge risk-high">High Risk</span>
+                        <h3>Data Source Connectivity Limitations</h3>
+                    </div>
+                    <div class="challenge-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>MS 365 Copilot cannot access Elastic/Cassandra in ING environment, and creating custom MCP servers is restricted. Gemini integration may face network/firewall constraints.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Impact</h4>
+                            <p>Core use case (payment data queries) may be blocked or require significant workarounds, delaying MVP delivery.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Mitigation</h4>
+                            <ul>
+                                <li><strong>Discovery focus:</strong> Week 1 priority is validating Elastic connectivity with both platforms</li>
+                                <li><strong>Fallback option:</strong> If M365 blocked, recommend Gemini (already approved on Vista platform)</li>
+                                <li><strong>Alternative architecture:</strong> API gateway or middleware layer to proxy Elastic queries if direct access restricted</li>
+                                <li><strong>Escalation path:</strong> If both platforms blocked, present data to ING leadership for policy exception or infrastructure changes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card risk-medium">
+                    <div class="challenge-header">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                        <h3>Multi-Tenancy & Data Isolation Complexity</h3>
+                    </div>
+                    <div class="challenge-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>Ensuring strict tenant data isolation (Italy cannot see Germany data) requires robust RBAC implementation in AI agent, with potential for accidental data leakage.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Impact</h4>
+                            <p>GDPR violation, loss of trust, potential regulatory penalties if data leakage occurs.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Mitigation</h4>
+                            <ul>
+                                <li><strong>Architecture principle:</strong> Filter data at query level (not agent level) - inject tenant ID into all Elastic/Cassandra queries</li>
+                                <li><strong>Testing rigor:</strong> Dedicated security testing sprint with cross-tenant access attempts</li>
+                                <li><strong>Leveraging existing auth:</strong> Integrate with Harmonia's existing RBAC (don't reinvent)</li>
+                                <li><strong>Audit logging:</strong> Log all queries with user identity for forensic analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card risk-medium">
+                    <div class="challenge-header">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                        <h3>AI Accuracy & Hallucination Management</h3>
+                    </div>
+                    <div class="challenge-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>LLMs may generate plausible-sounding but incorrect answers (hallucinations), especially for complex payment scenarios or edge cases not well-represented in training data.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Impact</h4>
+                            <p>Incorrect information provided to tenants could cause operational issues, loss of trust, or financial errors.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Mitigation</h4>
+                            <ul>
+                                <li><strong>RAG architecture:</strong> Ground all responses in retrieved data (Elastic, docs) - minimize generative content</li>
+                                <li><strong>Confidence scoring:</strong> Agent indicates confidence level and provides source citations</li>
+                                <li><strong>Fallback to human:</strong> "Escalate to support" option prominently displayed</li>
+                                <li><strong>Continuous monitoring:</strong> Track thumbs-down feedback and escalations to identify failure patterns</li>
+                                <li><strong>Feedback loop:</strong> Monthly review of failure cases to improve prompts and knowledge base</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card risk-medium">
+                    <div class="challenge-header">
+                        <span class="risk-badge risk-medium">Medium Risk</span>
+                        <h3>Knowledge Base Currency & Maintenance</h3>
+                    </div>
+                    <div class="challenge-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>OMaaP platform evolves continuously (new features, documentation updates). AI agent knowledge base may become stale if not regularly updated.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Impact</h4>
+                            <p>Agent provides outdated information, reducing accuracy and user trust over time.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Mitigation</h4>
+                            <ul>
+                                <li><strong>Automated sync:</strong> Daily/weekly jobs to re-index Forge, Orange Sharing, SharePoint</li>
+                                <li><strong>Version tagging:</strong> Knowledge base entries tagged with OMaaP version for deprecation</li>
+                                <li><strong>Ownership model:</strong> Assign responsibility to OMaaP documentation team for AI knowledge base maintenance</li>
+                                <li><strong>Staleness detection:</strong> Alert when source documents haven't been updated in >90 days</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card risk-low">
+                    <div class="challenge-header">
+                        <span class="risk-badge risk-low">Low Risk</span>
+                        <h3>User Adoption & Change Management</h3>
+                    </div>
+                    <div class="challenge-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>Tenants and support engineers may be resistant to using AI assistant, preferring familiar human support channels.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Impact</h4>
+                            <p>Low usage rates, failure to achieve expected ticket reduction and ROI.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Mitigation</h4>
+                            <ul>
+                                <li><strong>User-centric design:</strong> Involve support engineers and tenants in POC testing and feedback</li>
+                                <li><strong>Clear value prop:</strong> Demonstrate speed and convenience advantages in training</li>
+                                <li><strong>Hybrid approach:</strong> AI complements (not replaces) human support - easy escalation path</li>
+                                <li><strong>Gamification:</strong> Track and celebrate usage milestones (e.g., "1000 queries resolved!")</li>
+                                <li><strong>Training & documentation:</strong> Comprehensive onboarding materials for all personas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card risk-low">
+                    <div class="challenge-header">
+                        <span class="risk-badge risk-low">Low Risk</span>
+                        <h3>Performance & Scalability</h3>
+                    </div>
+                    <div class="challenge-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>High query volumes from multiple countries may cause latency or API rate limit issues with LLM provider.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Impact</h4>
+                            <p>Slow response times degrade user experience, potentially higher costs with pay-per-token model.</p>
+                        </div>
+                        <div class="challenge-section">
+                            <h4>Mitigation</h4>
+                            <ul>
+                                <li><strong>Caching layer:</strong> Cache common queries/responses to reduce LLM API calls</li>
+                                <li><strong>Load testing:</strong> Stress test during POC to validate performance under expected load</li>
+                                <li><strong>Rate limiting:</strong> Implement fair usage policies per tenant/user</li>
+                                <li><strong>Horizontal scaling:</strong> Design for stateless agents that can scale with demand</li>
+                                <li><strong>Monitoring:</strong> Real-time performance dashboards with alerting on SLA breaches</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="risk-summary">
+                <h3>Risk Management Approach</h3>
+                <p>All identified risks will be tracked in a <strong>Risk Register</strong> maintained throughout the project, with weekly reviews during MVP sprints. Each risk includes:</p>
+                <ul class="risk-approach">
+                    <li><strong>Probability:</strong> Likelihood of occurrence (High/Medium/Low)</li>
+                    <li><strong>Impact:</strong> Severity if realized (High/Medium/Low)</li>
+                    <li><strong>Owner:</strong> Team member responsible for monitoring and mitigation</li>
+                    <li><strong>Status:</strong> Open, Mitigated, Realized, Closed</li>
+                    <li><strong>Mitigation Plan:</strong> Specific actions and timelines</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Architecture -->
+    <section class="section section-light" id="data-architecture">
+        <div class="container">
+            <h2 class="section-title">Data Sources & Integration Architecture</h2>
+
+            <div class="architecture-intro">
+                <p>The AI assistant will integrate with multiple data sources across the OMaaP ecosystem, each serving distinct query types. The architecture must handle diverse data formats, access controls, and latency requirements.</p>
+            </div>
+
+            <div class="data-sources-grid">
+                <div class="data-source-card primary-source">
+                    <div class="source-header">
+                        <div class="source-icon">🗄️</div>
+                        <h3>Elastic Cluster</h3>
+                        <span class="source-badge">Primary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Payment transaction data - customer payment information, status, volumes, errors</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"What's the status of payment ID XYZ?"</li>
+                            <li>"How many failed payments for Germany today?"</li>
+                            <li>"Show me instant payment volumes this week"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p><strong>Option 1 (Preferred):</strong> MCP Server for Elastic + Gemini Agent<br>
+                        <strong>Option 2:</strong> Custom API wrapper with query translation</p>
+                        <h4>Security</h4>
+                        <p>Tenant-scoped queries enforced at query level, read-only access</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card primary-source">
+                    <div class="source-header">
+                        <div class="source-icon">💾</div>
+                        <h3>Cassandra Database</h3>
+                        <span class="source-badge">Primary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Payment information model - structured payment data, metadata</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"What payment types are supported for Italy?"</li>
+                            <li>"Show payment details for order ABC123"</li>
+                            <li>"What's the data model for bulk payments?"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>CQL query generation via agent function calling, result formatting for LLM context</p>
+                        <h4>Security</h4>
+                        <p>Tenant-scoped access via partition keys, read-only credentials</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card secondary-source">
+                    <div class="source-header">
+                        <div class="source-icon">📊</div>
+                        <h3>ELK (Logging Cluster)</h3>
+                        <span class="source-badge">Secondary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Application logs, error traces, system events, performance metrics</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"Show me errors for Spain in the last hour"</li>
+                            <li>"What caused payment timeout for tenant DE?"</li>
+                            <li>"Are there any recent system alerts?"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>Elasticsearch API for log queries, log parsing and summarization via LLM</p>
+                        <h4>Security</h4>
+                        <p>Tenant-scoped log filtering, PII masking for sensitive data</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card secondary-source">
+                    <div class="source-header">
+                        <div class="source-icon">📚</div>
+                        <h3>Forge (OMaaP Documentation)</h3>
+                        <span class="source-badge">Secondary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Product documentation, API references, onboarding guides, FAQs</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"How do I configure authorization handlers?"</li>
+                            <li>"What's the onboarding process for a new tenant?"</li>
+                            <li>"Explain the OMaaP extension model"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>RAG pipeline: Crawl/index documentation, vector embeddings, similarity search for retrieval</p>
+                        <h4>Security</h4>
+                        <p>No PII, generally accessible to all authenticated users</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card secondary-source">
+                    <div class="source-header">
+                        <div class="source-icon">📄</div>
+                        <h3>SharePoint</h3>
+                        <span class="source-badge">Secondary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Document management, team collaboration files, operational documentation</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"Show me the latest operational procedures"</li>
+                            <li>"Where can I find the deployment documentation?"</li>
+                            <li>"What are the team collaboration guidelines?"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>Microsoft Graph API + RAG pipeline, respect document permissions in retrieval</p>
+                        <h4>Security</h4>
+                        <p>Permission-aware retrieval (only show documents user can access)</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card secondary-source">
+                    <div class="source-header">
+                        <div class="source-icon">🍊</div>
+                        <h3>Orange Sharing</h3>
+                        <span class="source-badge">Secondary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Shared knowledge articles, best practices, troubleshooting guides</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"Best practices for payment validation"</li>
+                            <li>"How to troubleshoot timeout errors?"</li>
+                            <li>"Common issues during onboarding"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>API integration (if available) or web scraping + RAG pipeline</p>
+                        <h4>Security</h4>
+                        <p>Role-based access to articles</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card secondary-source">
+                    <div class="source-header">
+                        <div class="source-icon">⚙️</div>
+                        <h3>OMaaP Self-Service Portal</h3>
+                        <span class="source-badge">Secondary</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Tenant configuration data, product offerings, authorization rules library</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"What's my current tenant configuration?"</li>
+                            <li>"What products are enabled for my tenant?"</li>
+                            <li>"How many authorization rules are configured?"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>REST API queries for tenant-specific configuration data</p>
+                        <h4>Security</h4>
+                        <p>Tenant can only query their own configuration</p>
+                    </div>
+                </div>
+
+                <div class="data-source-card tertiary-source">
+                    <div class="source-header">
+                        <div class="source-icon">💻</div>
+                        <h3>Azure DevOps / SDKs</h3>
+                        <span class="source-badge">Tertiary (Stage 3)</span>
+                    </div>
+                    <div class="source-content">
+                        <h4>Contains</h4>
+                        <p>Code repositories, SDK documentation, CI/CD workflows, build pipelines</p>
+                        <h4>Query Types</h4>
+                        <ul>
+                            <li>"How do I create an OMaaP extension?"</li>
+                            <li>"Show me SDK usage examples"</li>
+                            <li>"What's the CI/CD process for deployments?"</li>
+                        </ul>
+                        <h4>Integration Approach</h4>
+                        <p>Azure DevOps REST API + code repository indexing for RAG</p>
+                        <h4>Security</h4>
+                        <p>Developer role required, respect repository permissions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-diagram-placeholder">
+                <h3>High-Level Integration Architecture</h3>
+                <div class="architecture-visual">
+                    <div class="arch-layer arch-user">
+                        <h4>User Layer</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">Harmonia Web App</div>
+                            <div class="arch-component">Chat Interface</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow-down">↓</div>
+                    <div class="arch-layer arch-api">
+                        <h4>API Gateway & Authentication</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">ING Azure AD</div>
+                            <div class="arch-component">RBAC Enforcement</div>
+                            <div class="arch-component">Request Router</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow-down">↓</div>
+                    <div class="arch-layer arch-agent">
+                        <h4>AI Agent Layer</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">Gemini/Vertex AI</div>
+                            <div class="arch-component">Agent Orchestrator</div>
+                            <div class="arch-component">RAG Pipeline</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow-down">↓</div>
+                    <div class="arch-layer arch-data">
+                        <h4>Data Integration Layer</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">Elastic Connector</div>
+                            <div class="arch-component">Cassandra Connector</div>
+                            <div class="arch-component">ELK Connector</div>
+                            <div class="arch-component">Doc Retrieval (Forge/SharePoint)</div>
+                        </div>
+                    </div>
+                    <div class="arch-arrow-down">↓</div>
+                    <div class="arch-layer arch-sources">
+                        <h4>Data Sources</h4>
+                        <div class="arch-components">
+                            <div class="arch-component">Elastic</div>
+                            <div class="arch-component">Cassandra</div>
+                            <div class="arch-component">ELK</div>
+                            <div class="arch-component">Forge</div>
+                            <div class="arch-component">SharePoint</div>
+                            <div class="arch-component">Orange</div>
+                            <div class="arch-component">Self-Service</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="architecture-note"><em>Detailed architecture diagrams will be produced during Discovery Week 2 as part of the Architectural Design Document.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Structure -->
+    <section class="section section-team" id="team">
+        <div class="container">
+            <h2 class="section-title">Delivery Team Structure</h2>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">TA</div>
+                    <h3>Thomas</h3>
+                    <div class="member-role">Engagement Lead and Lead AI Architect</div>
+                    <div class="member-allocation">50% Allocation</div>
+                    <div class="member-responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Overall delivery accountability and client relationship</li>
+                            <li>Solution architecture design and platform selection</li>
+                            <li>Technical decision-making and escalation handling</li>
+                            <li>Stakeholder management and executive reporting</li>
+                            <li>Discovery phase leadership and proposal finalization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">CH</div>
+                    <h3>Chitra</h3>
+                    <div class="member-role">Technical Lead</div>
+                    <div class="member-allocation">50% Allocation | Bangalore-based</div>
+                    <div class="member-responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Day-to-day technical leadership and sprint execution</li>
+                            <li>Requirements gathering and backlog management</li>
+                            <li>Developer team coordination and code reviews</li>
+                            <li>Technical integration (Elastic, Cassandra, ELK, docs)</li>
+                            <li>Quality assurance and testing oversight</li>
+                            <li>On-ground coordination with ING teams in India</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">AC</div>
+                    <h3>Alpha Coders (2 FTE)</h3>
+                    <div class="member-role">Senior Developers</div>
+                    <div class="member-allocation">IIT-trained | Offshore</div>
+                    <div class="member-responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>AI agent development and LLM integration</li>
+                            <li>RAG pipeline implementation (vectorization, retrieval)</li>
+                            <li>Chat UI development and Harmonia integration</li>
+                            <li>Data connector development (Elastic, Cassandra, APIs)</li>
+                            <li>Security implementation (RBAC, data masking)</li>
+                            <li>Performance optimization and scalability testing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">SK</div>
+                    <h3>Sudhakar</h3>
+                    <div class="member-role">Advisor</div>
+                    <div class="member-allocation">10% Allocation</div>
+                    <div class="member-responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Strategic guidance and technical oversight</li>
+                            <li>Escalation handling for critical blockers</li>
+                            <li>Executive-level stakeholder engagement</li>
+                            <li>Quality gate reviews at phase transitions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">AM</div>
+                    <h3>Ameet</h3>
+                    <div class="member-role">PSS Delivery Support</div>
+                    <div class="member-allocation">25% Allocation | Bangalore-based</div>
+                    <div class="member-responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>PSS domain expertise and context support</li>
+                            <li>Knowledge transfer on PSS processes</li>
+                            <li>Coordination with broader PSS delivery team</li>
+                            <li>Support for user acceptance testing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-avatar">SJ</div>
+                    <h3>Sanjay (ING)</h3>
+                    <div class="member-role">Product Owner & Stakeholder</div>
+                    <div class="member-allocation">ING PSS OMaaP</div>
+                    <div class="member-responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                            <li>Business requirements definition and prioritization</li>
+                            <li>Sprint planning and backlog acceptance</li>
+                            <li>User story validation and acceptance criteria</li>
+                            <li>Stakeholder communication within ING</li>
+                            <li>Success criteria validation and sign-off</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-structure-visual">
+                <h3>Reporting & Communication Structure</h3>
+                <div class="reporting-structure">
+                    <div class="reporting-level level-1">
+                        <div class="reporting-box level-client">
+                            <div class="box-label">Product Owner</div>
+                            <div class="box-name">Sanjay</div>
+                            <div class="box-org">ING Bank</div>
+                        </div>
+                    </div>
+                    <div class="reporting-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">↕</div>
+                        <div class="connector-label">Weekly Reviews</div>
+                    </div>
+                    <div class="reporting-level level-2">
+                        <div class="reporting-box level-lead">
+                            <div class="box-label">Engagement Lead</div>
+                            <div class="box-name">Thomas</div>
+                            <div class="box-org">HCLTech</div>
+                        </div>
+                    </div>
+                    <div class="reporting-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">↓</div>
+                        <div class="connector-label">Twice Weekly Sync</div>
+                    </div>
+                    <div class="reporting-level level-3">
+                        <div class="reporting-box level-tech">
+                            <div class="box-label">Technical Lead</div>
+                            <div class="box-name">Chitra</div>
+                            <div class="box-org">HCLTech Bangalore</div>
+                        </div>
+                    </div>
+                    <div class="reporting-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">↓</div>
+                        <div class="connector-label">Daily Standups</div>
+                    </div>
+                    <div class="reporting-level level-4">
+                        <div class="reporting-box level-team">
+                            <div class="box-label">Development Team</div>
+                            <div class="box-name">Alpha Coders (2 FTE)</div>
+                            <div class="box-org">IIT-trained Engineers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reporting-notes">
+                    <h4>Additional Communication</h4>
+                    <ul>
+                        <li><strong>Bi-weekly:</strong> Sprint demos to ING Onboarding Squad</li>
+                        <li><strong>As needed:</strong> Sudhakar (Advisor) provides strategic guidance</li>
+                        <li><strong>As needed:</strong> Ameet (PSS Support) assists with platform integration</li>
+                    </ul>
+                </div>
+
+                <div class="hours-forecast-section">
+                    <h3>MVP Delivery Hours Forecast</h3>
+                    <div class="hours-breakdown">
+                        <div class="hours-card">
+                            <h4>Discovery & Assessment Phase</h4>
+                            <div class="hours-detail">
+                                <div class="hours-row">
+                                    <span class="role">Thomas (Engagement Lead)</span>
+                                    <span class="allocation">50%</span>
+                                    <span class="hours">40 hours (2 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Chitra (Technical Lead)</span>
+                                    <span class="allocation">50%</span>
+                                    <span class="hours">40 hours (2 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Solution Architect</span>
+                                    <span class="allocation">40%</span>
+                                    <span class="hours">32 hours (2 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Sudhakar (Advisor)</span>
+                                    <span class="allocation">10%</span>
+                                    <span class="hours">8 hours (2 weeks)</span>
+                                </div>
+                                <div class="hours-subtotal">
+                                    <span class="label">Phase Subtotal:</span>
+                                    <span class="total">120 hours</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hours-card">
+                            <h4>MVP Development (3 Stages)</h4>
+                            <div class="hours-detail">
+                                <div class="hours-row">
+                                    <span class="role">Thomas (Engagement Lead)</span>
+                                    <span class="allocation">50%</span>
+                                    <span class="hours">220 hours (11 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Chitra (Technical Lead)</span>
+                                    <span class="allocation">50%</span>
+                                    <span class="hours">220 hours (11 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Alpha Coders (2 FTE)</span>
+                                    <span class="allocation">100%</span>
+                                    <span class="hours">880 hours (11 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Ameet (PSS Support)</span>
+                                    <span class="allocation">25%</span>
+                                    <span class="hours">110 hours (11 weeks)</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="role">Sudhakar (Advisor)</span>
+                                    <span class="allocation">10%</span>
+                                    <span class="hours">44 hours (11 weeks)</span>
+                                </div>
+                                <div class="hours-subtotal">
+                                    <span class="label">Phase Subtotal:</span>
+                                    <span class="total">1,474 hours</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hours-total-card">
+                            <div class="total-hours">
+                                <span class="label">Total MVP Delivery Hours:</span>
+                                <span class="number">1,594 hours</span>
+                            </div>
+                            <p class="service-credits-note"><strong>Delivered under HCLTech service credits</strong> - includes non-production environment setup, development, testing, and MVP validation</p>
+                            <p class="production-note"><strong>Note:</strong> Production rollout (environment setup, observability, progressive delivery, operational readiness) requires additional 6-8 weeks and separate commercial assessment as outlined in the Production Rollout section above.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section section-light" id="timeline">
+        <div class="container">
+            <h2 class="section-title">Timeline & Deliverables</h2>
+
+            <div class="timeline-overview">
+                <div class="timeline-stat">
+                    <div class="stat-number">2 weeks</div>
+                    <div class="stat-label">Discovery & Assessment</div>
+                </div>
+                <div class="timeline-stat">
+                    <div class="stat-number">11-14 weeks</div>
+                    <div class="stat-label">MVP Development (3 stages)</div>
+                </div>
+                <div class="timeline-stat">
+                    <div class="stat-number">13-16 weeks</div>
+                    <div class="stat-label">Total to Production</div>
+                </div>
+            </div>
+
+            <div class="gantt-placeholder">
+                <h3>Project Timeline (Gantt View)</h3>
+                <div class="gantt-chart">
+                    <div class="gantt-row">
+                        <div class="gantt-label">Discovery & Assessment</div>
+                        <div class="gantt-bar" style="width: 12%; background: var(--electric-violet);"></div>
+                        <div class="gantt-duration">Weeks 1-2</div>
+                    </div>
+                    <div class="gantt-row">
+                        <div class="gantt-label">Stage 1: Payment Data Assistant</div>
+                        <div class="gantt-spacer" style="width: 12%;"></div>
+                        <div class="gantt-bar" style="width: 18%; background: var(--sky-blue);"></div>
+                        <div class="gantt-duration">Weeks 3-5</div>
+                    </div>
+                    <div class="gantt-row">
+                        <div class="gantt-label">Stage 2: Knowledge Base Integration</div>
+                        <div class="gantt-spacer" style="width: 30%;"></div>
+                        <div class="gantt-bar" style="width: 24%; background: var(--hcltech-blue);"></div>
+                        <div class="gantt-duration">Weeks 6-9</div>
+                    </div>
+                    <div class="gantt-row">
+                        <div class="gantt-label">Stage 3: Developer Assistance</div>
+                        <div class="gantt-spacer" style="width: 54%;"></div>
+                        <div class="gantt-bar" style="width: 24%; background: var(--gradient-purple);"></div>
+                        <div class="gantt-duration">Weeks 10-13</div>
+                    </div>
+                    <div class="gantt-row">
+                        <div class="gantt-label">UAT Rollout & Stabilization</div>
+                        <div class="gantt-spacer" style="width: 78%;"></div>
+                        <div class="gantt-bar" style="width: 12%; background: var(--lavender-tint);"></div>
+                        <div class="gantt-duration">Weeks 14-15</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deliverables-timeline">
+                <h3>Key Deliverables by Phase</h3>
+                <div class="deliverables-phases">
+                    <div class="phase-deliverable">
+                        <h4>Discovery (Week 2)</h4>
+                        <ul>
+                            <li>Requirements Document</li>
+                            <li>Architectural Design Document</li>
+                            <li>POC Demo & Evaluation Report</li>
+                            <li>Security & Compliance Assessment</li>
+                            <li>MVP Roadmap & Sprint Plan</li>
+                        </ul>
+                    </div>
+                    <div class="phase-deliverable">
+                        <h4>Stage 1 (Week 5)</h4>
+                        <ul>
+                            <li>Chat interface in Harmonia (integrated)</li>
+                            <li>AI agent with Elastic/Cassandra queries</li>
+                            <li>RBAC implementation & security testing report</li>
+                            <li>User documentation (Tenant persona)</li>
+                            <li>Monitoring dashboard (MVP)</li>
+                            <li>UAT deployment for initial testing</li>
+                        </ul>
+                    </div>
+                    <div class="phase-deliverable">
+                        <h4>Stage 2 (Week 9)</h4>
+                        <ul>
+                            <li>RAG pipeline with multi-source integration</li>
+                            <li>ELK log analysis capability</li>
+                            <li>PSS Engineer persona & permissions</li>
+                            <li>Feedback mechanism (thumbs up/down)</li>
+                            <li>Updated user documentation</li>
+                            <li>Expanded UAT deployment with additional test scenarios</li>
+                        </ul>
+                    </div>
+                    <div class="phase-deliverable">
+                        <h4>Stage 3 (Week 13)</h4>
+                        <ul>
+                            <li>Developer assistance features (code, SDK, DevOps)</li>
+                            <li>General ING Engineer persona</li>
+                            <li>Azure DevOps integration</li>
+                            <li>Comprehensive user guide (all personas)</li>
+                            <li>Performance optimization report</li>
+                            <li>Complete UAT deployment with all features enabled</li>
+                        </ul>
+                    </div>
+                    <div class="phase-deliverable">
+                        <h4>UAT Rollout (Week 15)</h4>
+                        <ul>
+                            <li>UAT stabilization & bug fixes</li>
+                            <li>User training sessions (recorded)</li>
+                            <li>Handover documentation for MVP</li>
+                            <li>Baseline vs. actual metrics report (UAT)</li>
+                            <li>MVP closure & readiness assessment for production phase</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="section section-next-steps" id="next-steps">
+        <div class="container">
+            <h2 class="section-title">Next Steps & Call to Action</h2>
+
+            <div class="next-steps-content">
+                <div class="next-steps-intro">
+                    <p>To move forward with this initiative, we propose the following immediate actions to initiate the Discovery & Assessment phase and position the project for success.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Proposal Review & Alignment</h3>
+                        <div class="step-content">
+                            <p><strong>Timeline:</strong> Within 1 week</p>
+                            <p><strong>Action:</strong> Schedule 90-minute workshop with Sanjay, Onboarding Squad stakeholders, and HCLTech team to review this proposal</p>
+                            <p><strong>Outcome:</strong> Agreement on scope, success criteria, and Discovery phase objectives</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Data Access & Environment Provisioning</h3>
+                        <div class="step-content">
+                            <p><strong>Timeline:</strong> Within 1 week (parallel to Step 1)</p>
+                            <p><strong>Action:</strong> Submit access requests for Inquiry API, Forge, Orange Sharing, SharePoint, ad hoc data sources. Provision ING VPN/network access for HCLTech team</p>
+                            <p><strong>Outcome:</strong> HCLTech team ready to commence Discovery on Day 1</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Baseline Data Collection</h3>
+                        <div class="step-content">
+                            <p><strong>Timeline:</strong> Within 1 week (parallel)</p>
+                            <p><strong>Action:</strong> ING to export incident tracking data (6-12 months), Teams support channel history, and list of top 50 most frequent support questions</p>
+                            <p><strong>Outcome:</strong> Quantitative baseline established for success measurement</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Proposal Finalized & Agreement</h3>
+                        <div class="step-content">
+                            <p><strong>Timeline:</strong> Within 1-2 weeks</p>
+                            <p><strong>Action:</strong> Finalize and agree on proposal terms between ING and HCLTech. Authorize use of HCLTech service credits for Discovery + MVP phases (1,594 hours total)</p>
+                            <p><strong>Outcome:</strong> Mutual agreement established, project authorized to proceed under service credits</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3>Discovery Kick-off</h3>
+                        <div class="step-content">
+                            <p><strong>Timeline:</strong> Week 3 (target date: [To be determined])</p>
+                            <p><strong>Action:</strong> Formal kick-off meeting with full team, walkthrough of Discovery plan, and stakeholder interview scheduling</p>
+                            <p><strong>Outcome:</strong> Discovery phase commences, 2-week countdown begins</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commitment-section">
+                    <h3>HCLTech Commitment</h3>
+                    <div class="commitment-content">
+                        <p>HCLTech proposes to conduct the <strong>2-week Discovery & Assessment phase as an investment</strong>, demonstrating our commitment to this partnership and confidence in the value of this initiative. This allows ING to:</p>
+                        <ul class="commitment-list">
+                            <li>Validate technical feasibility with minimal financial commitment</li>
+                            <li>Make a data-driven platform decision (MS 365 vs. Gemini)</li>
+                            <li>Receive a detailed MVP implementation plan with fixed scope and timeline</li>
+                            <li>Assess HCLTech's capabilities and team fit before full engagement</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 HCLTech. Confidential - ING OMaaP AI Assistant Proposal</p>
+                </div>
+                <div class="footer-right">
+                    <p>Prepared by: Thomas (Engagement Lead) | Chitra (Technical Lead) | HCLTech PSS Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--hcltech-blue), var(--electric-violet)); width: 0%; z-index: 9999; transition: width 0.2s;"></div>
+
+    <!-- Floating Navigation Arrows -->
+    <button class="nav-arrow nav-arrow-up" id="nav-arrow-up" aria-label="Previous section" title="Previous section">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    <button class="nav-arrow nav-arrow-down" id="nav-arrow-down" aria-label="Next section" title="Next section">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+</body>
+</html>
