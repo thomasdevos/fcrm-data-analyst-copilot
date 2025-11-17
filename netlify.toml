@@ -1,12 +1,15 @@
 [build]
+  # Base directory for the build
+  base = "prototype/frontend"
+
   # Build command
   command = "npm run build"
 
-  # Directory with the build output
+  # Directory with the build output (relative to base)
   publish = "dist"
 
-  # Functions directory
-  functions = "netlify/functions"
+  # Functions directory (relative to repository root)
+  functions = "prototype/frontend/netlify/functions"
 
 # Redirects for SPA routing
 [[redirects]]
@@ -17,4 +20,3 @@
 # Environment variables (optional - set in Netlify dashboard)
 [build.environment]
   NODE_VERSION = "18"
-  # Netlify will automatically use Python 3.8 for .py functions
