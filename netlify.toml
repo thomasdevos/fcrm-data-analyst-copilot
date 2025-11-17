@@ -8,8 +8,9 @@
   # Directory with the build output (relative to base)
   publish = "dist"
 
-  # Functions directory (relative to repository root)
-  functions = "prototype/frontend/netlify/functions"
+# Functions directory (relative to repository root, NOT base directory)
+[functions]
+  directory = "prototype/frontend/netlify/functions"
 
 # Redirects for SPA routing
 [[redirects]]
