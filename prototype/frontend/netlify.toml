@@ -1,0 +1,25 @@
+[build]
+  # Build command
+  command = "npm run build"
+
+  # Directory with the build output
+  publish = "dist"
+
+  # Functions directory
+  functions = "netlify/functions"
+
+# Netlify Functions configuration
+[functions]
+  # Python runtime for Gemini integration
+  # Netlify will automatically detect and install requirements.txt
+  python_version = "3.9"
+
+# Redirects for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (optional - set in Netlify dashboard)
+[build.environment]
+  NODE_VERSION = "18"
