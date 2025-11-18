@@ -5639,3 +5639,205 @@ html {
         padding: var(--spacing-md);
     }
 }
+
+/* Risks & Decisions Section */
+.risk-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--medium-gray);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.risk-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.risk-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    border-left: 5px solid;
+}
+
+.risk-card.risk-critical {
+    border-left-color: var(--error);
+    background: linear-gradient(to right, rgba(220, 38, 38, 0.03), var(--white));
+}
+
+.risk-card.risk-high {
+    border-left-color: var(--warning);
+    background: linear-gradient(to right, rgba(245, 158, 11, 0.03), var(--white));
+}
+
+.risk-card.risk-medium {
+    border-left-color: #F59E0B;
+    background: linear-gradient(to right, rgba(245, 158, 11, 0.02), var(--white));
+}
+
+.risk-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.risk-badge.critical {
+    background: var(--error);
+    color: var(--white);
+}
+
+.risk-badge.high {
+    background: var(--warning);
+    color: var(--white);
+}
+
+.risk-badge.medium {
+    background: #F59E0B;
+    color: var(--white);
+}
+
+.risk-header h3 {
+    margin: 0;
+    color: var(--hcltech-blue);
+    font-size: 24px;
+}
+
+.risk-content h4 {
+    color: var(--electric-violet);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    font-size: 18px;
+}
+
+.risk-content ul {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.risk-content li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+.mitigation-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.mitigation-option {
+    background: var(--light-gray);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    border-left: 4px solid var(--medium-gray);
+}
+
+.mitigation-option.recommended {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), var(--white));
+    border-left-color: var(--electric-violet);
+}
+
+.mitigation-option h5 {
+    color: var(--hcltech-blue);
+    margin-bottom: var(--spacing-md);
+    font-size: 18px;
+}
+
+.mitigation-option p {
+    margin-bottom: var(--spacing-md);
+}
+
+.mitigation-option ul {
+    margin-bottom: var(--spacing-md);
+}
+
+.decision-box {
+    background: rgba(255, 102, 0, 0.1);
+    border-left: 4px solid var(--hcltech-orange);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-md);
+    font-size: 15px;
+}
+
+.decision-box strong {
+    color: var(--hcltech-orange);
+}
+
+.recommendation-box {
+    background: linear-gradient(135deg, var(--lavender-tint), var(--white));
+    border: 2px solid var(--electric-violet);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.recommendation-box p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+.recommendation-box strong {
+    color: var(--electric-violet);
+}
+
+.decision-summary {
+    background: linear-gradient(135deg, var(--lavender-tint), var(--light-gray));
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.decision-summary h3 {
+    color: var(--hcltech-blue);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.decision-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.decision-item {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--hcltech-orange);
+    box-shadow: var(--shadow-sm);
+    line-height: 1.7;
+}
+
+.decision-item strong {
+    color: var(--hcltech-orange);
+}
+
+/* Responsive adjustments for risk section */
+@media (max-width: 768px) {
+    .risk-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .risk-badge {
+        align-self: flex-start;
+    }
+}

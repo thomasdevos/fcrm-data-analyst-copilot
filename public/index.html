@@ -49,6 +49,7 @@
                 <li><a href="#success-criteria" class="nav-link">Success Criteria</a></li>
                 <li><a href="#squad" class="nav-link">Squad</a></li>
                 <li><a href="#dependencies" class="nav-link">Dependencies</a></li>
+                <li><a href="#risks" class="nav-link">Risks & Decisions</a></li>
                 <li><a href="#roadmap" class="nav-link">Future Roadmap</a></li>
                 <li><a href="#next-steps" class="nav-link">Next Steps</a></li>
             </ul>
@@ -797,6 +798,185 @@
                     <div class="assumption-card">
                         <h4>✓ GenAI is Allowed</h4>
                         <p>While ING has restrictions on "agentic AI" pending broader approval, using GenAI for summarization and Q&A is allowed for this Copilot application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risks & Decisions -->
+    <section class="section" id="risks">
+        <div class="container">
+            <h2 class="section-title">Risks, Mitigations & Key Decisions</h2>
+
+            <div class="risk-intro">
+                <p>This section outlines critical risks related to data privacy, regulatory compliance, and LLM strategy, along with proposed mitigation approaches and decisions required from ING stakeholders.</p>
+            </div>
+
+            <div class="risk-grid">
+                <!-- Risk 1: Data Privacy & PII -->
+                <div class="risk-card risk-critical">
+                    <div class="risk-header">
+                        <span class="risk-badge critical">🔴 CRITICAL</span>
+                        <h3>Data Privacy & PII Transmission Risk</h3>
+                    </div>
+                    <div class="risk-content">
+                        <h4>Risk Description</h4>
+                        <p>FCRM case data contains <strong>highly sensitive PII and financial information</strong> including customer names, addresses, tax IDs, account numbers, and transaction details. Using external LLM APIs (e.g., Google Gemini, Azure OpenAI) transmits this data outside ING's control, creating:</p>
+                        <ul>
+                            <li><strong>GDPR Article 28 compliance risk</strong> - Third-party data processors require Data Processing Agreements (DPA)</li>
+                            <li><strong>ECB/DNB regulatory risk</strong> - May prohibit sending customer PII to external cloud APIs</li>
+                            <li><strong>NIS2 & DORA compliance</strong> - EU regulations for critical financial infrastructure</li>
+                            <li><strong>Data residency requirements</strong> - Data may need to remain within EU/NL jurisdiction</li>
+                            <li><strong>Potential data breach exposure</strong> - External vendor security incidents</li>
+                        </ul>
+
+                        <h4>Mitigation Approaches (Decision Required)</h4>
+
+                        <div class="mitigation-options">
+                            <div class="mitigation-option recommended">
+                                <h5>🏆 Option 1: On-Premise LLM Deployment (RECOMMENDED for Production)</h5>
+                                <p><strong>Deploy open-source LLM within ING infrastructure</strong> - No data leaves ING network</p>
+                                <ul>
+                                    <li><strong>Models:</strong> Meta Llama 3.1 (8B/70B), Mistral 7B, Mixtral 8x7B</li>
+                                    <li><strong>Deployment:</strong> ING's GCP GPU cluster or on-premise Kubernetes</li>
+                                    <li><strong>Pros:</strong> 100% data sovereignty, GDPR compliant, no per-token costs, full control</li>
+                                    <li><strong>Cons:</strong> GPU infrastructure costs (€10k-50k), ML Ops overhead, fine-tuning required</li>
+                                    <li><strong>Timeline:</strong> 8-12 weeks additional setup for production deployment</li>
+                                </ul>
+                                <p class="decision-box"><strong>Decision Point:</strong> ING to assess feasibility of GPU infrastructure provisioning and approve ML Ops resourcing for production phase.</p>
+                            </div>
+
+                            <div class="mitigation-option">
+                                <h5>Option 2: Google Vertex AI with Private Service Connect (Hybrid Approach)</h5>
+                                <p><strong>Use Gemini via Google Cloud with EU data residency + private VPC</strong></p>
+                                <ul>
+                                    <li><strong>Deployment:</strong> Vertex AI in europe-west4 (Netherlands) with Private Service Connect</li>
+                                    <li><strong>Data flow:</strong> Data stays in EU, transmitted over private network (no public internet)</li>
+                                    <li><strong>Pros:</strong> Enterprise DPA available, VPC isolation, EU compliance, managed service</li>
+                                    <li><strong>Cons:</strong> Still external processor, complex setup, vendor lock-in, compliance approval needed</li>
+                                    <li><strong>Timeline:</strong> 4-6 weeks for VPC setup and security approval</li>
+                                </ul>
+                                <p class="decision-box"><strong>Decision Point:</strong> Legal & Compliance to approve Google as data processor with signed DPA. Infrastructure team to provision Private Service Connect.</p>
+                            </div>
+
+                            <div class="mitigation-option">
+                                <h5>Option 3: Mock Data Only (MVP Phase - Current Approach)</h5>
+                                <p><strong>Use external APIs (Gemini) ONLY with synthetic/mock data for MVP demo</strong></p>
+                                <ul>
+                                    <li><strong>Approach:</strong> Build and validate functionality using realistic but fictional mock cases</li>
+                                    <li><strong>Transition:</strong> Switch to Option 1 or 2 before connecting to live FCRM data</li>
+                                    <li><strong>Pros:</strong> Fast development, no compliance blockers for MVP, stakeholder validation</li>
+                                    <li><strong>Cons:</strong> Cannot go to production without switching to compliant LLM approach</li>
+                                    <li><strong>Timeline:</strong> Supports current 19-week MVP timeline</li>
+                                </ul>
+                                <p class="decision-box"><strong>Decision Point:</strong> Approve use of Gemini API for MVP demo purposes only with commitment to migrate to Option 1/2 before live data integration.</p>
+                            </div>
+                        </div>
+
+                        <h4>Strategic Recommendation</h4>
+                        <div class="recommendation-box">
+                            <p><strong>Phase 1 (MVP):</strong> Proceed with <strong>Option 3</strong> - Use Gemini API with mock data only to deliver UAT-ready prototype and validate business value.</p>
+                            <p><strong>Phase 2 (Production):</strong> Deploy <strong>Option 1</strong> - On-premise Llama 3.1 70B for full data sovereignty and cost-effectiveness at scale.</p>
+                            <p><strong>Fallback:</strong> If GPU infrastructure unavailable, pursue <strong>Option 2</strong> - Vertex AI with Private Service Connect as interim solution with strict DPA and audit controls.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk 2: LLM Strategy -->
+                <div class="risk-card risk-high">
+                    <div class="risk-header">
+                        <span class="risk-badge high">🟠 HIGH</span>
+                        <h3>LLM Vendor Strategy & Avoidance of Non-Strategic Platforms</h3>
+                    </div>
+                    <div class="risk-content">
+                        <h4>Risk Description</h4>
+                        <p>ING may have strategic preferences or restrictions on LLM vendors. <strong>Azure OpenAI</strong> has been explicitly identified as <strong>not a preferred strategic approach</strong> for ING.</p>
+
+                        <h4>Implications</h4>
+                        <ul>
+                            <li><strong>Vendor lock-in risk</strong> - Dependence on non-strategic vendor complicates long-term support</li>
+                            <li><strong>Contract limitations</strong> - ING may lack enterprise agreements with certain vendors</li>
+                            <li><strong>Compliance complexity</strong> - Non-approved vendors require additional legal/security reviews</li>
+                        </ul>
+
+                        <h4>Mitigation</h4>
+                        <p>This proposal <strong>excludes Azure OpenAI</strong> from consideration and focuses on:</p>
+                        <ul>
+                            <li><strong>Google Gemini (Vertex AI)</strong> - If ING has GCP enterprise agreement</li>
+                            <li><strong>Open-source models (Llama, Mistral)</strong> - Vendor-neutral, self-hosted approach</li>
+                        </ul>
+                        <p class="decision-box"><strong>Decision Point:</strong> ING to confirm approved LLM vendors and strategic platform preferences (GCP vs. vendor-neutral open source).</p>
+                    </div>
+                </div>
+
+                <!-- Risk 3: Compliance & Audit -->
+                <div class="risk-card risk-high">
+                    <div class="risk-header">
+                        <span class="risk-badge high">🟠 HIGH</span>
+                        <h3>Regulatory Compliance & Audit Trail</h3>
+                    </div>
+                    <div class="risk-content">
+                        <h4>Risk Description</h4>
+                        <p>Financial crime investigations are <strong>highly auditable</strong>. Use of AI in case analysis requires:</p>
+                        <ul>
+                            <li><strong>Full audit trail</strong> of all AI queries and responses</li>
+                            <li><strong>Explainability</strong> - Ability to show how AI reached conclusions</li>
+                            <li><strong>Human oversight</strong> - AI cannot make triage decisions (already scoped correctly)</li>
+                            <li><strong>DPIA completion</strong> - Data Protection Impact Assessment required</li>
+                        </ul>
+
+                        <h4>Mitigation</h4>
+                        <ul>
+                            <li><strong>All AI interactions logged</strong> to audit database with timestamps and user IDs</li>
+                            <li><strong>Source citations</strong> - AI responses reference specific data points (case IDs, transaction IDs)</li>
+                            <li><strong>Read-only access</strong> - AI cannot modify case data or make decisions</li>
+                            <li><strong>DPIA template</strong> - HCLTech to provide standard DPIA questionnaire for ING completion</li>
+                        </ul>
+                        <p class="decision-box"><strong>Decision Point:</strong> ING Compliance/Legal to complete DPIA assessment and approve AI use case before UAT with real data.</p>
+                    </div>
+                </div>
+
+                <!-- Risk 4: Model Quality -->
+                <div class="risk-card risk-medium">
+                    <div class="risk-header">
+                        <span class="risk-badge medium">🟡 MEDIUM</span>
+                        <h3>LLM Accuracy & Hallucination Risk</h3>
+                    </div>
+                    <div class="risk-content">
+                        <h4>Risk Description</h4>
+                        <p>LLMs can generate plausible but incorrect information ("hallucinations"), which could mislead analysts if AI summarizes or interprets case data incorrectly.</p>
+
+                        <h4>Mitigation</h4>
+                        <ul>
+                            <li><strong>Grounding in source data</strong> - AI only uses provided case data, no external knowledge</li>
+                            <li><strong>Citation required</strong> - All claims must reference specific data fields</li>
+                            <li><strong>Confidence disclaimers</strong> - UI shows "AI-generated summary" warnings</li>
+                            <li><strong>UAT validation</strong> - Subject Matter Experts validate accuracy during testing</li>
+                            <li><strong>Success metric: >95% factual accuracy</strong> measured during UAT</li>
+                        </ul>
+                        <p class="decision-box"><strong>Decision Point:</strong> Define acceptable error rate threshold (propose <5% hallucination rate) and UAT acceptance criteria.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decision-summary">
+                <h3>🎯 Key Decisions Required from ING Stakeholders</h3>
+                <div class="decision-list">
+                    <div class="decision-item">
+                        <strong>Decision 1 (LLM Strategy):</strong> Approve LLM deployment approach - On-premise (Option 1), Vertex AI Private (Option 2), or phased approach (Option 3 → Option 1)
+                    </div>
+                    <div class="decision-item">
+                        <strong>Decision 2 (Compliance):</strong> Complete DPIA and obtain Legal/Compliance approval for AI use in FCRM case analysis
+                    </div>
+                    <div class="decision-item">
+                        <strong>Decision 3 (Infrastructure):</strong> Confirm availability of GPU infrastructure (if pursuing Option 1) or approve Vertex AI Private Service Connect setup (if Option 2)
+                    </div>
+                    <div class="decision-item">
+                        <strong>Decision 4 (Vendor):</strong> Confirm Google/GCP is approved strategic vendor, or mandate open-source approach
+                    </div>
+                    <div class="decision-item">
+                        <strong>Decision 5 (Timeline):</strong> Accept that production deployment with live data requires additional 4-12 weeks beyond MVP for LLM infrastructure setup (depending on chosen option)
                     </div>
                 </div>
             </div>
